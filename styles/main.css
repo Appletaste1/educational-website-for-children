@@ -1,0 +1,133 @@
+/* Base styles */
+body {
+    font-family: 'Noto Sans SC', sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(to bottom, #0a0a2e, #1a1a4a);
+    color: #fff;
+    padding-top: 4rem;
+}
+
+/* Space theme animations */
+@keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite;
+}
+
+.floating {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Neon effects */
+.neon-text {
+    text-shadow: 0 0 10px rgba(100, 217, 255, 0.8),
+                 0 0 20px rgba(100, 217, 255, 0.8),
+                 0 0 30px rgba(100, 217, 255, 0.6);
+}
+
+.neon-box {
+    box-shadow: 0 0 10px rgba(100, 217, 255, 0.3),
+               0 0 20px rgba(100, 217, 255, 0.2);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Custom button styles */
+.btn-primary {
+    @apply px-8 py-4 text-lg font-medium rounded-lg transition-all duration-500;
+    background: linear-gradient(45deg, #00a8ff, #00ff88);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary:hover {
+    @apply transform -translate-y-1;
+    box-shadow: 0 0 20px rgba(0, 168, 255, 0.6),
+               0 0 40px rgba(0, 255, 136, 0.4);
+}
+
+.btn-secondary {
+    @apply px-6 py-3 text-sm font-medium rounded-lg transition-all duration-300;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+    @apply transform -translate-y-1;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Card styles */
+.glass-card {
+    @apply p-8 rounded-xl transition-all duration-500;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card:hover {
+    @apply transform -translate-y-2;
+    box-shadow: 0 0 30px rgba(100, 217, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Page transitions */
+.page-transition {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Loading animation */
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loading::after {
+    content: '';
+    width: 50px;
+    height: 50px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #00a8ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+} 

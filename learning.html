@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学习中心 - 儿童教育平台</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="styles/learning.css" rel="stylesheet">
+    <link href="styles/auth.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <!-- Auth Container -->
+    <div class="auth-container"></div>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="modal-overlay hidden" role="dialog" aria-modal="true">
+        <div class="modal-content" tabindex="-1">
+            <!-- Modal content will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <!-- Feedback Container -->
+    <div class="feedback-container"></div>
+
+    <!-- Protected Content Container -->
+    <div id="protected-content" class="hidden">
+        <!-- 导航栏 -->
+        <nav class="fixed top-0 left-0 right-0 bg-gray-800 bg-opacity-90 backdrop-filter backdrop-blur-lg z-50">
+            <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+                <div class="flex items-center">
+                    <!-- 移动端菜单按钮 -->
+                    <button class="menu-toggle md:hidden mr-4 p-2 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400" aria-label="打开菜单">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                    <a href="/" class="text-2xl font-bold text-blue-400">儿童教育平台</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="btn-child">返回首页</button>
+                    <div class="relative">
+                        <img src="assets/avatar-placeholder.png" alt="用户头像" class="w-10 h-10 rounded-full cursor-pointer">
+                        <span class="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-gray-800"></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 主要内容区域 -->
+        <div class="flex min-h-screen pt-16">
+            <!-- 侧边栏 -->
+            <aside class="sidebar w-64 fixed h-full overflow-y-auto">
+                <div class="p-4">
+                    <div class="mb-8">
+                        <h2 class="text-xl font-bold mb-4">课程大纲</h2>
+                        <div id="course-outline" class="space-y-2">
+                            <!-- Course outline will be dynamically inserted here -->
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h2 class="text-xl font-bold mb-4">学习进度</h2>
+                        <div id="progress-tracking">
+                            <!-- Progress tracking will be dynamically inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- 主内容区 -->
+            <main class="flex-1 ml-64 p-6 md:ml-0">
+                <div class="max-w-4xl mx-auto">
+                    <!-- 视频播放器 -->
+                    <div class="video-player mb-8 relative">
+                        <video id="course-video" class="w-full rounded-xl" controls>
+                            <source src="" type="video/mp4">
+                            你的浏览器不支持视频播放。
+                        </video>
+                        <div class="video-controls absolute bottom-0 left-0 right-0">
+                            <button class="play-pause-btn" aria-label="播放/暂停">播放</button>
+                            <input type="range" class="volume-slider" min="0" max="1" step="0.1" value="1" aria-label="音量控制">
+                            <div class="progress-bar" role="progressbar" aria-label="视频进度">
+                                <div class="progress-bar-fill" style="width: 0%"></div>
+                            </div>
+                            <span class="shortcut-hint">空格键：播放/暂停</span>
+                        </div>
+                    </div>
+
+                    <!-- 成就徽章墙 -->
+                    <div class="achievement-wall mb-8">
+                        <h2 class="text-2xl font-bold mb-4 col-span-full">我的成就</h2>
+                        <!-- 成就徽章将由JavaScript动态添加 -->
+                    </div>
+
+                    <!-- 课程内容 -->
+                    <div class="content-area mb-8">
+                        <h1 class="text-3xl font-bold mb-6">欢迎来到学习中心</h1>
+                        <p class="text-gray-300 mb-4">请从左侧选择一个章节开始学习。每个章节都包含有趣的视频课程和互动练习，帮助你轻松掌握知识。</p>
+                    </div>
+
+                    <!-- 练习区域 -->
+                    <div class="exercise-container mb-8" id="exercise-1">
+                        <h2 class="text-2xl font-bold mb-4">练习题</h2>
+                        <div class="space-y-4">
+                            <div class="exercise-block">
+                                <p class="mb-3">请选择正确的答案：</p>
+                                <div class="grid grid-cols-2 gap-4">
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 left-0 right-0 bg-gray-800 bg-opacity-90 backdrop-filter backdrop-blur-lg z-50">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center">
+                <!-- 移动端菜单按钮 -->
+                <button class="menu-toggle md:hidden mr-4 p-2 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400" aria-label="打开菜单">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+                <a href="/" class="text-2xl font-bold text-blue-400">儿童教育平台</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="btn-child">返回首页</button>
+                <div class="relative">
+                    <img src="assets/avatar-placeholder.png" alt="用户头像" class="w-10 h-10 rounded-full cursor-pointer">
+                    <span class="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-gray-800"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容区域 -->
+    <div class="flex min-h-screen pt-16">
+        <!-- 侧边栏 -->
+        <aside class="sidebar w-64 fixed h-full overflow-y-auto">
+            <div class="p-4">
+                <div class="mb-6">
+                    <h2 class="text-xl font-bold mb-4">课程进度</h2>
+                    <div class="bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div class="overall-progress" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <a href="#" class="chapter-link block p-3 rounded-lg hover:bg-gray-800 transition-all duration-200" data-chapter="1">
+                        <div class="flex items-center justify-between">
+                            <span>第1章：字母认知</span>
+                            <span class="progress-indicator">0 完成</span>
+                        </div>
+                    </a>
+                    <a href="#" class="chapter-link block p-3 rounded-lg hover:bg-gray-800 transition-all duration-200" data-chapter="2">
+                        <div class="flex items-center justify-between">
+                            <span>第2章：数字基础</span>
+                            <span class="progress-indicator">0 完成</span>
+                        </div>
+                    </a>
+                    <a href="#" class="chapter-link block p-3 rounded-lg hover:bg-gray-800 transition-all duration-200" data-chapter="3">
+                        <div class="flex items-center justify-between">
+                            <span>第3章：简单单词</span>
+                            <span class="progress-indicator">0 完成</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="flex-1 ml-64 p-6 md:ml-0">
+            <div class="max-w-4xl mx-auto">
+                <!-- 视频播放器 -->
+                <div class="video-player mb-8 relative">
+                    <video class="w-full rounded-xl" poster="assets/video-placeholder.jpg">
+                        <source src="" type="video/mp4">
+                        你的浏览器不支持视频播放。
+                    </video>
+                    <div class="video-controls absolute bottom-0 left-0 right-0">
+                        <button class="play-pause-btn" aria-label="播放/暂停">播放</button>
+                        <input type="range" class="volume-slider" min="0" max="1" step="0.1" value="1" aria-label="音量控制">
+                        <div class="progress-bar" role="progressbar" aria-label="视频进度">
+                            <div class="progress-bar-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="shortcut-hint">空格键：播放/暂停</span>
+                    </div>
+                </div>
+
+                <!-- 成就徽章墙 -->
+                <div class="achievement-wall mb-8">
+                    <h2 class="text-2xl font-bold mb-4 col-span-full">我的成就</h2>
+                    <!-- 成就徽章将由JavaScript动态添加 -->
+                </div>
+
+                <!-- 课程内容 -->
+                <div class="content-area mb-8">
+                    <h1 class="text-3xl font-bold mb-6">欢迎来到学习中心</h1>
+                    <p class="text-gray-300 mb-4">请从左侧选择一个章节开始学习。每个章节都包含有趣的视频课程和互动练习，帮助你轻松掌握知识。</p>
+                </div>
+
+                <!-- 练习区域 -->
+                <div class="exercise-container mb-8" id="exercise-1">
+                    <h2 class="text-2xl font-bold mb-4">练习题</h2>
+                    <div class="space-y-4">
+                        <div class="exercise-block">
+                            <p class="mb-3">请选择正确的答案：</p>
+                            <div class="grid grid-cols-2 gap-4">
+                                <button class="answer-input" role="button" aria-label="选项 A">选项 A</button>
+                                <button class="answer-input" role="button" aria-label="选项 B">选项 B</button>
+                                <button class="answer-input" role="button" aria-label="选项 C">选项 C</button>
+                                <button class="answer-input" role="button" aria-label="选项 D">选项 D</button>
+                            </div>
+                        </div>
+                        <button class="btn-child exercise-submit" data-exercise-id="1">提交答案</button>
+                    </div>
+                </div>
+
+                <!-- 练习结果展示区 -->
+                <div class="exercise-result" aria-live="polite"></div>
+
+                <!-- 笔记区域 -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold mb-4">我的笔记</h2>
+                    <div class="note-editor" contenteditable="true" role="textbox" aria-label="笔记编辑区" placeholder="在这里写下你的想法..."></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 吉祥物 -->
+    <div class="mascot">
+        <img src="assets/mascots/default.png" alt="小智" />
+    </div>
+
+    <!-- 底部工具栏 -->
+    <div class="fixed bottom-0 left-64 right-0 bg-gray-800 bg-opacity-90 backdrop-filter backdrop-blur-lg md:left-0">
+        <div class="container mx-auto px-6 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <button class="btn-child" aria-label="上一课">上一课</button>
+                <button class="btn-child" aria-label="下一课">下一课</button>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="btn-child" aria-label="保存笔记">保存笔记</button>
+                <button class="btn-child" aria-label="帮助">帮助</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 加载指示器 -->
+    <div class="loading-overlay hidden" role="alert" aria-busy="true">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">正在加载...</div>
+    </div>
+
+    <!-- 音量控制器 -->
+    <div class="fixed bottom-20 right-4 bg-gray-800 p-4 rounded-lg shadow-lg hidden" id="volume-controls">
+        <h3 class="text-lg font-bold mb-2">音量控制</h3>
+        <div class="space-y-4">
+            <div>
+                <label for="bgm-volume" class="block mb-1">背景音乐</label>
+                <input type="range" id="bgm-volume" class="volume-slider" min="0" max="1" step="0.1" value="0.5">
+            </div>
+            <div>
+                <label for="sfx-volume" class="block mb-1">音效</label>
+                <input type="range" id="sfx-volume" class="volume-slider" min="0" max="1" step="0.1" value="0.5">
+            </div>
+            <div>
+                <label for="voice-volume" class="block mb-1">语音</label>
+                <input type="range" id="voice-volume" class="volume-slider" min="0" max="1" step="0.1" value="0.5">
+            </div>
+        </div>
+    </div>
+
+    <!-- 移动端导航遮罩 -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 hidden md:hidden" id="sidebar-overlay"></div>
+
+    <script type="module" src="js/learning.js"></script>
+    <script type="module" src="js/reward-manager.js"></script>
+</body>
+</html> 

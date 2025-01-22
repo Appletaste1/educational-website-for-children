@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程介绍 - AI Builder 星际探索</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Noto Sans SC for Chinese text -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Include Navigation -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Star background -->
+    <div id="stars" class="fixed inset-0 z-0"></div>
+
+    <!-- Hero Section -->
+    <section class="relative z-10 text-center py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto page-transition">
+            <h1 class="text-4xl sm:text-5xl font-bold mb-4 neon-text">
+                探索 AI 学习之旅
+            </h1>
+            <p class="text-xl text-blue-200 mb-12 max-w-2xl mx-auto">
+                从基础到进阶，我们为孩子设计了完整的学习路径，
+                让每一步都充满趣味与挑战。
+            </p>
+        </div>
+    </section>
+
+    <!-- Course Modules -->
+    <section class="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <!-- Module 1 -->
+            <div id="module1" class="glass-card mb-12 page-transition" style="animation-delay: 0.1s">
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <div class="lg:w-2/3">
+                        <h2 class="text-2xl font-bold mb-4 text-blue-300">模块一：AI 启蒙与基础编程</h2>
+                        <p class="text-gray-300 mb-6">
+                            在这个模块中，孩子们将通过生动有趣的方式认识人工智能，
+                            体验图形化编程的乐趣，为未来的学习打下坚实基础。
+                        </p>
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="text-lg font-semibold text-blue-200 mb-2">课程内容</h3>
+                                <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                    <li>人工智能基础概念介绍</li>
+                                    <li>图形化编程工具使用</li>
+                                    <li>简单机器人控制实践</li>
+                                    <li>基础算法思维培养</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-blue-200 mb-2">学习目标</h3>
+                                <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                    <li>理解 AI 的基本概念和应用场景</li>
+                                    <li>掌握图形化编程的基本技能</li>
+                                    <li>培养逻辑思维和问题解决能力</li>
+                                    <li>建立对科技的兴趣和信心</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/3">
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-blue-200 mb-4">课程信息</h3>
+                            <ul class="space-y-3 text-gray-300">
+                                <li class="flex items-center">
+                                    <span class="font-semibold mr-2">适合年龄：</span>
+                                    <span>3-5岁</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="font-semibold mr-2">课程时长：</span>
+                                    <span>8周（每周2课时）</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="font-semibold mr-2">班级人数：</span>
+                                    <span>最多6人</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="font-semibold mr-2">上课方式：</span>
+                                    <span>线上直播 + 录播</span>
+                                </li>
+                            </ul>
+                            <a href="signup.html" class="btn-primary block text-center mt-6">
+                                立即报名
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 2 -->
+            <div id="module2" class="glass-card mb-12 page-transition" style="animation-delay: 0.2s">
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <div class="lg:w-2/3">
+                        <h2 class="text-2xl font-bold mb-4 text-blue-300">模块二：项目式学习与设计思维</h2>
+                        <p class="text-gray-300 mb-6">
+                            通过实际项目的设计与实施，培养孩子的创造力和解决问题的能力，
+                            让他们在动手实践中体验成功的喜悦。
+                        </p>
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="text-lg font-semibold text-blue-200 mb-2">课程内容</h3>
+                                <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                    <li>项目规划与设计方法</li>
+                                    <li>创意思维工具运用</li>
+                                    <li>团队协作技巧</li>
+                                    <li>作品展示与优化</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-blue-200 mb-2">学习目标</h3>
+                                <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                    <li>掌握项目设计的基本流程</li>
+                                    <li>培养创造性思维</li>
+                                    <li>提升团队协作能力</li>
+                                    <li>学会展示和优化作品</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/3">
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-blue-200 mb-4">课程信息</h3>
+                            <ul class="space-y-3 text-gray-300">
+                                <li class="flex items-center">
+                                    <span class="font-semibold mr-2">适合年龄：</span>
+                                    <span>5-7岁</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="font-semibold mr-2">课程时长：</span>
+                                    <span>12周（每周2课时）</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="font-semibold mr-2">班级人数：</span>
+                                    <span>最多8人</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="font-semibold mr-2">上课方式：</span>
+                                    <span>线上直播 + 实践作业</span>
+                                </li>
+                            </ul>
+                            <a href="signup.html" class="btn-primary block text-center mt-6">
+                                立即报名
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 3 -->
+            <div id="module3" class="glass-card mb-12 page-transition" style="animation-delay: 0.3s">
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <div class="lg:w-2/3">
+                        <h2 class="text-2xl font-bold mb-4 text-blue-300">模块三：AI 深度体验</h2>
+                        <p class="text-gray-300 mb-6">
+                            深入探索 AI 技术的应用，通过实际案例和项目，
+                            让孩子们体验人工智能如何改变我们的生活。
+                        </p>
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="text-lg font-semibold text-blue-200 mb-2">课程内容</h3>
+                                <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                    <li>机器学习基础概念</li>
+                                    <li>图像识别应用实践</li>
+                                    <li>语音识别技术体验</li>
+                                    <li>AI 辅助创作工具使用</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-blue-200 mb-2">学习目标</h3>
+                                <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                    <li>理解 AI 技术的工作原理</li>
+                                    <li>掌握基础的 AI 工具使用</li>
+                                    <li>培养科技创新思维</li>
+                                    <li>提升项目实践能力</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/3">
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-blue-200 mb-4">课程信息</h3>
+                            <ul class="space-y-3 text-gray-300">
+                                <li class="flex items-center">
+                                    <span class="font-semibold mr-2">适合年龄：</span>
+                                    <span>6-8岁</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="font-semibold mr-2">课程时长：</span>
+                                    <span>16周（每周2课时）</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="font-semibold mr-2">班级人数：</span>
+                                    <span>最多10人</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="font-semibold mr-2">上课方式：</span>
+                                    <span>线上直播 + 项目实践</span>
+                                </li>
+                            </ul>
+                            <a href="signup.html" class="btn-primary block text-center mt-6">
+                                立即报名
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 neon-box">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center neon-text">常见问题</h2>
+            <div class="space-y-6">
+                <div class="glass-card">
+                    <h3 class="text-xl font-semibold text-blue-300 mb-4">课程是否需要编程基础？</h3>
+                    <p class="text-gray-300">
+                        不需要任何编程基础。我们的课程从最基础的概念开始，
+                        通过图形化编程工具，让孩子们轻松入门。
+                    </p>
+                </div>
+                <div class="glass-card">
+                    <h3 class="text-xl font-semibold text-blue-300 mb-4">如何选择适合的课程等级？</h3>
+                    <p class="text-gray-300">
+                        我们会根据孩子的年龄和兴趣进行课前测评，
+                        为每个孩子推荐最适合的课程模块。
+                    </p>
+                </div>
+                <div class="glass-card">
+                    <h3 class="text-xl font-semibold text-blue-300 mb-4">线上课程如何保证学习效果？</h3>
+                    <p class="text-gray-300">
+                        我们采用小班制教学，配合 AI 助教系统，
+                        确保每个孩子都能得到充分的关注和指导。
+                        同时，我们提供详细的课后练习和项目实践机会。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="relative z-10 text-center py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto neon-box p-12 rounded-2xl">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-8 neon-text">
+                开启孩子的 AI 探索之旅
+            </h2>
+            <p class="text-lg text-gray-300 mb-12 max-w-2xl mx-auto">
+                现在报名即可获得免费的课程体验机会，
+                让孩子亲身感受 AI 学习的魅力！
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="signup.html" class="btn-primary">
+                    立即报名
+                </a>
+                <a href="contact.html" class="btn-secondary">
+                    咨询详情
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 py-8 text-gray-400 text-center border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-white font-semibold mb-4">关于我们</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">公司介绍</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">教学理念</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">加入我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">学习资源</h4>
+                    <ul class="space-y-2">
+                        <li><a href="courses.html" class="hover:text-white transition-colors">课程介绍</a></li>
+                        <li><a href="community.html" class="hover:text-white transition-colors">学员作品</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition-colors">常见问题</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">联系我们</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">在线客服</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">电话咨询</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">意见反馈</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">关注我们</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">微信公众号</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">官方微博</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">抖音号</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800">
+                <p>&copy; 2024 AI Builder 星际探索. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Load navigation
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+            });
+
+        // Create stars background
+        function createStars() {
+            const stars = document.getElementById('stars');
+            const count = 100;
+            
+            for (let i = 0; i < count; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 3}s`;
+                stars.appendChild(star);
+            }
+        }
+
+        // Initialize when page loads
+        window.addEventListener('load', () => {
+            createStars();
+        });
+    </script>
+</body>
+</html> 

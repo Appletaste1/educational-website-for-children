@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Builder 星际探索 - 让孩子的想象力插上 AI 的翅膀</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Noto Sans SC for Chinese text -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="styles/auth.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Auth Container -->
+    <div class="auth-container"></div>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="modal-overlay hidden" role="dialog" aria-modal="true">
+        <div class="modal-content" tabindex="-1">
+            <!-- Modal content will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <!-- Feedback Container -->
+    <div class="feedback-container"></div>
+
+    <!-- Include Navigation -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Star background -->
+    <div id="stars" class="fixed inset-0 z-0"></div>
+
+    <!-- Hero Section -->
+    <section class="relative z-10 text-center py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto page-transition">
+            <h1 class="text-4xl sm:text-5xl font-bold mb-4 neon-text">
+                让孩子的想象力<br>插上 AI 的翅膀
+            </h1>
+            <p class="text-xl text-blue-200 mb-12 max-w-2xl mx-auto">
+                在这片充满未来感的造梦空间，孩子们将通过 AI 辅助的项目式学习，
+                培养解决问题的能力、激发创造潜能，为迎接科技时代的机遇做好准备。
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="courses.html" class="btn-primary">
+                    探索课程内容
+                </a>
+                <a href="signup.html" class="btn-secondary">
+                    立即免费注册
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center neon-text">核心特色</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="glass-card floating" style="animation-delay: 0s;">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-300">AI 智能个性化推进</h3>
+                    <p class="text-gray-300 mb-4">
+                        利用智能算法，为孩子量身定制学习路径，
+                        自动匹配难度和主题，让每一步都更高效、更有趣。
+                    </p>
+                    <a href="ai.html" class="btn-secondary inline-block">了解更多</a>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="glass-card floating" style="animation-delay: 0.2s;">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-300">项目式动手创造</h3>
+                    <p class="text-gray-300 mb-4">
+                        从火箭设计到未来城市构想，
+                        在跨学科融合的项目里激发孩子的 Builder 思维。
+                    </p>
+                    <a href="courses.html" class="btn-secondary inline-block">查看课程</a>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="glass-card floating" style="animation-delay: 0.4s;">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-300">创意社群与合作</h3>
+                    <p class="text-gray-300 mb-4">
+                        孩子们在这里不仅仅是学习，更是交流彼此天马行空的想法，
+                        让灵感串联成无限可能。
+                    </p>
+                    <a href="community.html" class="btn-secondary inline-block">加入社区</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Preview Section -->
+    <section class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 neon-box">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center neon-text">探索学习之旅</h2>
+            <p class="text-lg text-gray-300 mb-12 text-center">
+                从 AI 启蒙到实战项目，我们为孩子准备了循序渐进的学习路径
+            </p>
+            
+            <!-- Course Modules -->
+            <div class="space-y-6">
+                <!-- Module 1 -->
+                <div class="glass-card hover:cursor-pointer" onclick="window.location.href='courses.html#module1'">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="text-xl font-semibold text-blue-300">AI 启蒙与基础编程</h3>
+                            <p class="text-gray-300 mt-2">认识人工智能，体验图形化编程的乐趣</p>
+                        </div>
+                        <span class="text-blue-300">→</span>
+                    </div>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="glass-card hover:cursor-pointer" onclick="window.location.href='courses.html#module2'">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="text-xl font-semibold text-blue-300">项目式学习与设计思维</h3>
+                            <p class="text-gray-300 mt-2">动手实践，培养解决问题的能力</p>
+                        </div>
+                        <span class="text-blue-300">→</span>
+                    </div>
+                </div>
+
+                <!-- More Modules Preview -->
+                <div class="text-center mt-8">
+                    <a href="courses.html" class="btn-primary">查看完整课程</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Showcase -->
+    <section class="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center neon-text">学员作品展示</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="glass-card">
+                    <div class="aspect-w-16 aspect-h-9 mb-4">
+                        <div class="w-full h-48 bg-gray-800 rounded-lg"></div>
+                    </div>
+                    <h3 class="text-lg font-semibold text-blue-300">智能垃圾分类机器人</h3>
+                    <p class="text-gray-300 mt-2">由8岁的小朋友设计完成</p>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="glass-card">
+                    <div class="aspect-w-16 aspect-h-9 mb-4">
+                        <div class="w-full h-48 bg-gray-800 rounded-lg"></div>
+                    </div>
+                    <h3 class="text-lg font-semibold text-blue-300">未来城市交通系统</h3>
+                    <p class="text-gray-300 mt-2">7岁学员的创意作品</p>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="glass-card">
+                    <div class="aspect-w-16 aspect-h-9 mb-4">
+                        <div class="w-full h-48 bg-gray-800 rounded-lg"></div>
+                    </div>
+                    <h3 class="text-lg font-semibold text-blue-300">AI 助手机器人</h3>
+                    <p class="text-gray-300 mt-2">6岁小朋友的首个项目</p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="community.html" class="btn-secondary">查看更多作品</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="relative z-10 text-center py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto neon-box p-12 rounded-2xl">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-8 neon-text">
+                让科技与孩子的梦想共舞
+            </h2>
+            <p class="text-lg text-gray-300 mb-12 max-w-2xl mx-auto">
+                别让传统枯燥的教育桎梏孩子无限的创造力。
+                是时候为他们打开通往未来大门，
+                让全新的 Builder 思维方式，
+                成为孩子踏上科技时代的奠基石！
+            </p>
+            <a href="signup.html" class="btn-primary">
+                立即加入，开启未来之旅！
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 py-8 text-gray-400 text-center border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-white font-semibold mb-4">关于我们</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">公司介绍</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">教学理念</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">加入我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">学习资源</h4>
+                    <ul class="space-y-2">
+                        <li><a href="courses.html" class="hover:text-white transition-colors">课程介绍</a></li>
+                        <li><a href="community.html" class="hover:text-white transition-colors">学员作品</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition-colors">常见问题</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">联系我们</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">在线客服</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">电话咨询</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">意见反馈</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">关注我们</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">微信公众号</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">官方微博</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">抖音号</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800">
+                <p>&copy; 2024 AI Builder 星际探索. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Load navigation
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+            });
+
+        // Create stars background
+        function createStars() {
+            const stars = document.getElementById('stars');
+            const count = 100;
+            
+            for (let i = 0; i < count; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 3}s`;
+                stars.appendChild(star);
+            }
+        }
+
+        // Initialize when page loads
+        window.addEventListener('load', () => {
+            createStars();
+        });
+    </script>
+    <script type="module">
+        import { authModule } from './js/auth-module.js';
+        window.authModule = authModule; // Make it available globally for onclick handlers
+    </script>
+</body>
+</html> 

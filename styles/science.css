@@ -1,0 +1,294 @@
+/* Science Module Styles */
+
+/* Experiment Buttons */
+.experiment-btn {
+    @apply bg-gradient-to-br p-6 rounded-xl transition-all duration-300 text-center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.experiment-btn:nth-child(1) {
+    @apply from-blue-500 to-indigo-600;
+}
+
+.experiment-btn:nth-child(2) {
+    @apply from-cyan-500 to-blue-600;
+}
+
+.experiment-btn:nth-child(3) {
+    @apply from-green-500 to-teal-600;
+}
+
+.experiment-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Experiment Container */
+.experiment-container {
+    min-height: 400px;
+    background: linear-gradient(45deg, #1a2634, #2c3e50);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Solar System */
+.solar-system-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.sun {
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.orbit {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.planet {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform-origin: 50% 50%;
+}
+
+/* Weather Scene */
+.weather-scene-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.weather-elements {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.raindrop {
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(transparent, #fff);
+    animation: rainfall 1s linear infinite;
+}
+
+.snowflake {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    animation: snowfall 3s linear infinite;
+}
+
+.lightning {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    animation: flash 2s ease-out infinite;
+}
+
+/* Plant Growth */
+.plant-growth-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.plant {
+    transition: height 1s ease;
+}
+
+.stem {
+    position: relative;
+    margin: 0 auto;
+    background: linear-gradient(to bottom, #4CAF50, #2E7D32);
+}
+
+.leaves {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.leaf {
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    background: #4CAF50;
+    border-radius: 10px 0;
+    transform-origin: 0 50%;
+    animation: sway 3s ease-in-out infinite;
+}
+
+/* Tool Buttons */
+.tool-btn {
+    @apply bg-gray-700 px-4 py-2 rounded-lg transition-all duration-200;
+}
+
+.tool-btn:hover {
+    @apply bg-gray-600;
+    transform: translateY(-2px);
+}
+
+.tool-btn.active {
+    @apply bg-blue-600;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+/* Observation History */
+.observation-card {
+    @apply bg-gray-800 p-4 rounded-xl transition-all duration-200;
+}
+
+.observation-card:hover {
+    @apply bg-gray-700;
+    transform: translateY(-2px);
+}
+
+/* Stage Indicators */
+.stage-indicator {
+    @apply flex flex-col items-center;
+}
+
+.indicator-dot {
+    @apply w-4 h-4 rounded-full bg-gray-600 transition-all duration-300;
+}
+
+.indicator-dot.active {
+    @apply bg-green-500;
+    transform: scale(1.2);
+}
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+@keyframes rainfall {
+    0% { transform: translateY(-20px); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes snowfall {
+    0% { transform: translateY(-10px) translateX(0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(100vh) translateX(20px); opacity: 0; }
+}
+
+@keyframes flash {
+    0%, 100% { opacity: 0; }
+    10% { opacity: 1; }
+    20% { opacity: 0; }
+    30% { opacity: 0.6; }
+    40% { opacity: 0; }
+}
+
+@keyframes sway {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .experiment-btn {
+        @apply p-4;
+    }
+
+    .experiment-container {
+        min-height: 300px;
+    }
+
+    .tool-btn {
+        @apply px-2 py-1 text-sm;
+    }
+
+    .planet {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .experiment-btn {
+        background: #000;
+        border: 3px solid #fff;
+    }
+
+    .tool-btn {
+        background: #000;
+        border: 2px solid #fff;
+    }
+
+    .tool-btn.active {
+        background: #fff;
+        color: #000;
+    }
+
+    .observation-card {
+        border: 2px solid #fff;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .experiment-btn,
+    .tool-btn,
+    .observation-card,
+    .plant,
+    .indicator-dot {
+        transition: none;
+    }
+
+    .sun,
+    .raindrop,
+    .snowflake,
+    .lightning,
+    .leaf {
+        animation: none;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .experiment-btn:nth-child(1) {
+        @apply from-blue-700 to-indigo-800;
+    }
+
+    .experiment-btn:nth-child(2) {
+        @apply from-cyan-700 to-blue-800;
+    }
+
+    .experiment-btn:nth-child(3) {
+        @apply from-green-700 to-teal-800;
+    }
+
+    .experiment-container {
+        background: linear-gradient(45deg, #0f172a, #1e293b);
+    }
+
+    .tool-btn {
+        @apply bg-gray-800;
+    }
+
+    .tool-btn:hover {
+        @apply bg-gray-700;
+    }
+
+    .observation-card {
+        @apply bg-gray-800;
+    }
+
+    .observation-card:hover {
+        @apply bg-gray-700;
+    }
+} 

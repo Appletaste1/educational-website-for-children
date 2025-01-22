@@ -1,0 +1,151 @@
+<style>
+  .footer {
+    background-color: var(--theme-background);
+    color: var(--theme-text);
+    padding: 2rem 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-section h3 {
+    color: var(--theme-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .footer-link {
+    color: var(--theme-text);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+  }
+
+  .footer-link:hover,
+  .footer-link:focus-visible {
+    color: var(--theme-accent);
+    text-decoration: underline;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .social-link {
+    color: var(--theme-text);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+  }
+
+  .social-link:hover,
+  .social-link:focus-visible {
+    color: var(--theme-accent);
+  }
+
+  .legal-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--theme-secondary);
+  }
+
+  .legal-links a {
+    color: var(--theme-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .legal-links a:hover,
+  .legal-links a:focus-visible {
+    color: var(--theme-accent);
+    text-decoration: underline;
+  }
+
+  /* Responsive layout */
+  @media (max-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    
+    .legal-links {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  /* Dark Mode */
+  [data-dark-mode="true"] .footer {
+    background-color: var(--theme-background);
+    color: var(--theme-text);
+  }
+
+  [data-high-contrast="true"] .footer {
+    background-color: var(--theme-background);
+    color: var(--theme-text);
+  }
+</style>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-section">
+      <h3>学习资源</h3>
+      <a href="courses.html" class="theme-transition theme-interactive footer-link">课程介绍</a>
+      <a href="resources.html" class="theme-transition theme-interactive footer-link">学习资料</a>
+      <a href="games.html" class="theme-transition theme-interactive footer-link">教育游戏</a>
+    </div>
+    
+    <div class="footer-section">
+      <h3>关于我们</h3>
+      <a href="about.html" class="theme-transition theme-interactive footer-link">公司介绍</a>
+      <a href="team.html" class="theme-transition theme-interactive footer-link">团队介绍</a>
+      <a href="contact.html" class="theme-transition theme-interactive footer-link">联系我们</a>
+    </div>
+    
+    <div class="footer-section">
+      <h3>社交媒体</h3>
+      <a href="https://weibo.com/company" class="theme-transition theme-interactive social-link" aria-label="访问我们的微博">
+        <span>微博</span>
+      </a>
+      <a href="https://wechat.com/company" class="theme-transition theme-interactive social-link" aria-label="关注我们的微信">
+        <span>微信</span>
+      </a>
+      <a href="https://qq.com/company" class="theme-transition theme-interactive social-link" aria-label="添加我们的QQ">
+        <span>QQ</span>
+      </a>
+    </div>
+    
+    <div class="footer-section">
+      <h3>联系我们</h3>
+      <p>电话：400-123-4567</p>
+      <p>邮箱：info@company.com</p>
+      <p>地址：北京市朝阳区</p>
+    </div>
+  </div>
+  
+  <div class="legal-links">
+    <a href="/privacy.html" class="theme-transition theme-interactive footer-link">隐私政策</a>
+    <a href="/terms.html" class="theme-transition theme-interactive footer-link">服务条款</a>
+  </div>
+</footer>

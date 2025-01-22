@@ -1,0 +1,465 @@
+#Local python path F:\Anaconda\envs\ai\python
+
+# Instructions
+
+You are a multi-agent system coordinator, playing two roles in this environment: Planner and Executor. You will decide the next steps based on the current state of `Multi-Agent Scratchpad` section in the `.cursorrules` file. Your goal is to complete the user's (or business's) final requirements. The specific instructions are as follows:
+
+## Role Descriptions
+
+1. Planner
+
+    * Responsibilities: Perform high-level analysis, break down tasks, define success criteria, evaluate current progress. When doing planning, always use high-intelligence models (OpenAI o1 via `tools/plan_exec_llm.py`). Don't rely on your own capabilities to do the planning.
+    * Actions: Invoke the Planner by calling `F:\Anaconda\envs\ai\python tools/plan_exec_llm.py --prompt {any prompt}`. You can also include content from a specific file in the analysis by using the `--file` option: `F:\Anaconda\envs\ai\python tools/plan_exec_llm.py --prompt {any prompt} --file {path/to/file}`. It will print out a plan on how to revise the `.cursorrules` file. You then need to actually do the changes to the file. And then reread the file to see what's the next step.
+
+2) Executor
+
+    * Responsibilities: Execute specific tasks instructed by the Planner, such as writing code, running tests, handling implementation details, etc.. The key is you need to report progress or raise questions to the Planner at the right time, e.g. after completion some milestone or after you've hit a blocker.
+    * Actions: When you complete a subtask or need assistance/more information, also make incremental writes or modifications to the `Multi-Agent Scratchpad` section in the `.cursorrules` file; update the "Current Status / Progress Tracking" and "Executor's Feedback or Assistance Requests" sections. And then change to the Planner role.
+
+## Document Conventions
+
+* The `Multi-Agent Scratchpad` section in the `.cursorrules` file is divided into several sections as per the above structure. Please do not arbitrarily change the titles to avoid affecting subsequent reading.
+* Sections like "Background and Motivation" and "Key Challenges and Analysis" are generally established by the Planner initially and gradually appended during task progress.
+* "Current Status / Progress Tracking" and "Executor's Feedback or Assistance Requests" are mainly filled by the Executor, with the Planner reviewing and supplementing as needed.
+* "Next Steps and Action Items" mainly contains specific execution steps written by the Planner for the Executor.
+
+## Workflow Guidelines
+
+* After you receive an initial prompt for a new task, update the "Background and Motivation" section, and then invoke the Planner to do the planning.
+* When thinking as a Planner, always use the local command line `F:\Anaconda\envs\ai\python tools/plan_exec_llm.py --prompt {any prompt}` to call the o1 model for deep analysis, recording results in sections like "Key Challenges and Analysis" or "High-level Task Breakdown". Also update the "Background and Motivation" section.
+* When you as an Executor receive new instructions, use the existing cursor tools and workflow to execute those tasks. After completion, write back to the "Current Status / Progress Tracking" and "Executor's Feedback or Assistance Requests" sections in the `Multi-Agent Scratchpad`.
+* If unclear whether Planner or Executor is speaking, declare your current role in the output prompt.
+* Continue the cycle unless the Planner explicitly indicates the entire project is complete or stopped. Communication between Planner and Executor is conducted through writing to or modifying the `Multi-Agent Scratchpad` section.
+
+Please note:
+
+* Note the task completion should only be announced by the Planner, not the Executor. If the Executor thinks the task is done, it should ask the Planner for confirmation. Then the Planner needs to do some cross-checking.
+* Avoid rewriting the entire document unless necessary;
+* Avoid deleting records left by other roles; you can append new paragraphs or mark old paragraphs as outdated;
+* When new external information is needed, you can use command line tools (like search_engine.py, llm_api.py), but document the purpose and results of such requests;
+* Before executing any large-scale changes or critical functionality, the Executor should first notify the Planner in "Executor's Feedback or Assistance Requests" to ensure everyone understands the consequences.
+* During you interaction with the user, if you find anything reusable in this project (e.g. version of a library, model name), especially about a fix to a mistake you made or a correction you received, you should take note in the `Lessons` section in the `.cursorrules` file so you will not make the same mistake again. 
+
+# Tools
+
+Note all the tools are in python. So in the case you need to do batch processing, you can always consult the python files and write your own script.
+
+## Screenshot Verification
+The screenshot verification workflow allows you to capture screenshots of web pages and verify their appearance using LLMs. The following tools are available:
+
+1. Screenshot Capture:
+```bash
+F:\Anaconda\envs\ai\python tools/screenshot_utils.py URL [--output OUTPUT] [--width WIDTH] [--height HEIGHT]
+```
+
+2. LLM Verification with Images:
+```bash
+F:\Anaconda\envs\ai\python tools/llm_api.py --prompt "Your verification question" --provider {openai|anthropic} --image path/to/screenshot.png
+```
+
+Example workflow:
+```python
+from screenshot_utils import take_screenshot_sync
+from llm_api import query_llm
+
+# Take a screenshot
+screenshot_path = take_screenshot_sync('https://example.com', 'screenshot.png')
+
+# Verify with LLM
+response = query_llm(
+    "What is the background color and title of this webpage?",
+    provider="openai",  # or "anthropic"
+    image_path=screenshot_path
+)
+print(response)
+```
+
+## LLM
+
+You always have an LLM at your side to help you with the task. For simple tasks, you could invoke the LLM by running the following command:
+```
+F:\Anaconda\envs\ai\python ./tools/llm_api.py --prompt "What is the capital of France?" --provider "anthropic"
+```
+
+The LLM API supports multiple providers:
+- OpenAI (default, model: gpt-4o)
+- Azure OpenAI (model: configured via AZURE_OPENAI_MODEL_DEPLOYMENT in .env file, defaults to gpt-4o-ms)
+- DeepSeek (model: deepseek-chat)
+- Anthropic (model: claude-3-sonnet-20240229)
+- Gemini (model: gemini-pro)
+- Local LLM (model: Qwen/Qwen2.5-32B-Instruct-AWQ)
+
+But usually it's a better idea to check the content of the file and use the APIs in the `tools/llm_api.py` file to invoke the LLM if needed.
+
+## Web browser
+
+You could use the `tools/web_scraper.py` file to scrape the web.
+```
+F:\Anaconda\envs\ai\python ./tools/web_scraper.py --max-concurrent 3 URL1 URL2 URL3
+```
+This will output the content of the web pages.
+
+## Search engine
+
+You could use the `tools/search_engine.py` file to search the web.
+```
+F:\Anaconda\envs\ai\python ./tools/search_engine.py "your search keywords"
+```
+This will output the search results in the following format:
+```
+URL: https://example.com
+Title: This is the title of the search result
+Snippet: This is a snippet of the search result
+```
+If needed, you can further use the `web_scraper.py` file to scrape the web page content.
+
+# Lessons
+
+## User Specified Lessons
+
+- You have a python venv in ./venv. Use it.
+- Include info useful for debugging in the program output.
+- Read the file before you try to edit it.
+- Due to Cursor's limit, when you use `git` and `gh` and need to submit a multiline commit message, first write the message in a file, and then use `git commit -F <filename>` or similar command to commit. And then remove the file. Include "[Cursor] " in the commit message and PR title.
+
+## Cursor learned
+
+- For search results, ensure proper handling of different character encodings (UTF-8) for international queries
+- Add debug information to stderr while keeping the main output clean in stdout for better pipeline integration
+- When using seaborn styles in matplotlib, use 'seaborn-v0_8' instead of 'seaborn' as the style name due to recent seaborn version changes
+- Use 'gpt-4o' as the model name for OpenAI's GPT-4 with vision capabilities
+
+# Multi-Agent Scratchpad
+
+## Background and Motivation
+
+Create an educational website targeting children aged 3-8 years old. The website should:
+- Be interactive and engaging with animations and sound effects
+- Include learning modules for basic English, math, and science
+- Feature story reading sections with audio narration
+- Incorporate educational games
+- Have a parent management interface
+- Use child-friendly design with bright colors and cartoon characters
+- Be responsive and work on both mobile and desktop
+- Prioritize child safety and privacy
+
+## Key Challenges and Analysis
+
+1. Technical Challenges:
+- Need to implement interactive features like animations and sound
+- Must ensure responsive design works well on all devices
+- Need to handle audio playback and user interactions smoothly
+- Must implement proper security measures for child safety
+
+2. Design Challenges:
+- Create an interface that's intuitive for young children
+- Balance engaging visuals with educational content
+- Ensure text is age-appropriate and readable
+- Design large, easily clickable buttons and controls
+
+3. Content Challenges:
+- Develop appropriate educational content for different age groups
+- Create engaging stories and games
+- Implement progress tracking system
+- Design reward/feedback system
+
+## Verifiable Success Criteria
+
+1. Technical Requirements:
+- Website loads and functions properly on both desktop and mobile devices
+- All interactive elements (buttons, games) respond correctly to user input
+- Audio playback works correctly
+- Parent dashboard successfully tracks child's progress
+
+2. User Experience:
+- Interface is intuitive enough for 3-8 year olds to navigate
+- Text is readable and age-appropriate
+- Visual design is engaging but not overwhelming
+- Interactive elements provide clear feedback
+
+3. Educational Goals:
+- Content is appropriate for target age group
+- Learning modules cover specified topics (English, math, science)
+- Progress tracking system accurately records child's activities
+- Reward system provides meaningful feedback
+
+## High-level Task Breakdown
+
+Phase 1: Initial Setup (Completed)
+- Create basic HTML structure
+- Set up CSS framework for responsive design
+- Implement basic JavaScript functionality
+
+Phase 2: Core Features (In Progress)
+- Implement learning modules
+  - Math Module Enhancements (Next Priority):
+    1. Critical Features
+       - Add counting exercises with visual aids
+       - Implement shape recognition and basic geometry
+       - Create measurement exercises
+       - Add parental progress reports
+       - Implement accessibility features
+    2. Engagement Improvements
+       - Develop adaptive learning system
+       - Add drag-and-drop interactions
+       - Create math-themed stories and characters
+       - Enhance gamification elements
+    3. Usability Improvements
+       - Simplify navigation with visual cues
+       - Optimize button sizes and feedback
+       - Implement child-friendly hint system
+    4. Learning Effectiveness
+       - Create structured progression system
+       - Add conceptual explanations
+       - Develop varied problem types
+       - Implement pressure-free practice mode
+- Create story reading section
+- Develop basic games
+- Set up parent dashboard
+
+Phase 3: Interactive Elements
+- Add animations
+- Implement audio features
+- Create reward system
+- Add progress tracking
+
+Phase 4: Polish and Testing
+- Optimize performance
+- Test on different devices
+- Implement security measures
+- Final design adjustments
+
+## Current Status / Progress Tracking
+
+Math Module Development Progress:
+✓ Basic module structure and configuration
+✓ Test suite for core functionality
+✓ Configuration system for module settings
+✓ Initial implementation plan completed
+✓ Logging system implementation
+  - Created logging utility module with comprehensive event tracking
+  - Integrated logging with math module operations
+  - Added test suite for logging functionality
+  - Implemented storage and retrieval mechanisms
+✓ Metrics System Implementation
+  - Created metrics utility module with comprehensive calculations
+  - Implemented engagement, performance, and progression metrics
+  - Added error analysis and adaptability indicators
+  - Integrated metrics with math module for adaptive learning
+  - Created test suite for metrics functionality
+
+Theme System Implementation Progress:
+1. Theme Configuration Management (Completed)
+   - Created JSON schema for theme properties validation
+   - Established global CSS custom properties
+   - Implemented theme manager with storage and switching
+   - Added comprehensive test coverage
+   - Created age-specific theme presets
+
+2. Component Integration (In Progress)
+   a. Core Navigation and Layout
+      ✓ Navigation Component
+        - Replaced hardcoded colors with theme variables
+        - Added theme transition classes
+        - Implemented responsive adjustments
+        - Created mobile-friendly styles
+      ✓ Header Component
+        - Created theme-aware hero section
+        - Implemented responsive typography
+        - Added accessible CTA buttons
+        - Included high contrast and dark mode support
+      ✓ Footer Section (Testing Phase)
+        - Theme Integration
+          * Mapped theme-dependent styles for links and icons
+          * Ensured consistent color scheme across themes
+          * Added smooth theme transitions
+          * Implemented high contrast and dark mode support
+        - Responsive Layout
+          * Implemented mobile-first grid system
+          * Created flexible column layouts
+          * Optimized spacing for different screens
+          * Added graceful content wrapping
+        - Accessibility Features
+          * Added descriptive link text and ARIA labels
+          * Ensured keyboard navigation support
+          * Maintained sufficient contrast ratios
+          * Implemented semantic HTML structure
+        - Content Organization
+          * Grouped related links logically
+          * Added social media integration
+          * Included copyright notices
+          * Provided contact information
+        - Testing Infrastructure (Completed)
+          * Set up Jest configuration with JSDOM environment
+          * Created custom matchers for style testing
+          * Implemented HTML transform for component testing
+          * Added mocks for browser APIs and static assets
+        - Testing Requirements (Current Focus)
+          * Cross-browser compatibility verification in progress
+          * Responsive behavior testing ongoing
+          * Accessibility compliance audit scheduled
+          * Theme switching validation planned
+
+      - Sidebar Components (Next Priority)
+        - Theme Integration
+          * Convert existing styles to theme variables
+          * Integrate with theme configuration system
+          * Implement smooth theme transitions
+          * Add high contrast and dark mode support
+        - Interactivity
+          * Implement collapse behavior for mobile
+          * Add smooth transition animations
+          * Ensure proper state management
+          * Test user interaction patterns
+        - Accessibility
+          * Add proper ARIA attributes
+          * Ensure keyboard navigation
+          * Test screen reader compatibility
+          * Maintain contrast requirements
+        - Responsive Design
+          * Optimize mobile layout
+          * Test on various devices
+          * Ensure consistent behavior
+          * Verify content adaptability
+
+      - Content Containers (Planned)
+        - Update spacing system
+        - Implement theme transitions
+        - Test responsive grid
+        - Optimize performance
+
+   b. Educational Modules (Planned)
+      - Math module components
+      - English module components
+      - Science module components
+      - Interactive learning elements
+
+   c. Interactive Elements (Planned)
+      - Game components
+      - Quiz interfaces
+      - Progress indicators
+      - Achievement displays
+
+3. Performance Optimization (Planned)
+   - Optimize theme switching mechanism
+   - Implement lazy loading for theme assets
+   - Develop caching strategies
+   - Conduct performance audits
+
+Next Implementation Steps:
+1. Complete Footer Testing
+   a. Cross-browser Testing
+      - Test in Chrome, Firefox, Safari, and Edge
+      - Verify theme transitions across browsers
+      - Check responsive behavior consistency
+      - Document any browser-specific issues
+
+   b. Accessibility Audit
+      - Run automated accessibility checks
+      - Perform manual screen reader testing
+      - Verify keyboard navigation paths
+      - Test high contrast mode functionality
+
+   c. Performance Validation
+      - Measure theme switching performance
+      - Check for layout shifts during transitions
+      - Monitor memory usage
+      - Optimize asset loading
+
+2. Begin Sidebar Implementation
+   a. Initial Setup
+      - Create basic component structure
+      - Set up theme variable integration
+      - Implement responsive layout
+      - Add accessibility features
+
+   b. Interactive Features
+      - Develop collapse mechanism
+      - Add transition animations
+      - Implement state management
+      - Test user interactions
+
+   c. Testing Strategy
+      - Define test scenarios
+      - Create test cases
+      - Set up automated testing
+      - Plan manual testing procedures
+
+Implementation Strategy:
+1. Focus on completing footer testing
+2. Document any issues and fixes
+3. Begin sidebar component development
+4. Maintain consistent theme integration
+5. Ensure accessibility compliance
+6. Monitor performance metrics
+
+## Executor's Feedback or Assistance Requests
+
+技术问题报告：
+目前遇到规划工具的技术问题，无法获取自动评估反馈。请求手动审查以下方面：
+
+1. 设计评估
+   - 视觉设计是否足够吸引3-8岁的儿童
+   - 动画和交互效果是否合适
+   - 是否需要添加更多儿童友好的插图和图标
+   - 配色方案是否需要调整
+
+2. 功能完整性
+   - 是否满足所有核心功能需求
+   - 是否需要添加其他教育相关功能
+   - 用户注册流程是否完善
+   - 社区互动功能是否足够
+
+3. 技术实现
+   - 响应式设计在各设备上的表现
+   - 页面加载性能和优化
+   - 代码结构和可维护性
+   - 安全性和隐私保护措施
+
+4. 内容组织
+   - 信息架构是否清晰
+   - 内容是否适合目标年龄段
+   - 导航结构是否易于理解
+   - 是否需要添加更多教育内容
+
+请提供详细的评估意见和改进建议，以确保网站能够更好地服务于我们的目标用户。
+
+## Main Layout Components (In Progress)
+  ✓ Footer Section (Completed)
+     - Theme Integration
+       * Mapped theme-dependent styles for links and icons
+       * Ensured consistent color scheme across themes
+       * Added smooth theme transitions
+       * Implemented high contrast and dark mode support
+     - Responsive Layout
+       * Implemented mobile-first grid system
+       * Created flexible column layouts
+       * Optimized spacing for different screens
+       * Added graceful content wrapping
+     - Accessibility Features
+       * Added descriptive link text and ARIA labels
+       * Ensured keyboard navigation support
+       * Maintained sufficient contrast ratios
+       * Implemented semantic HTML structure
+     - Content Organization
+       * Grouped related links logically
+       * Added social media integration
+       * Included copyright notices
+       * Provided contact information
+     - Testing Requirements (Next Focus)
+       * Cross-browser compatibility verification
+       * Responsive behavior testing
+       * Accessibility compliance audit
+       * Theme switching validation
+
+  2. Sidebar Components (Next Priority)
+     - Convert to theme variables
+     - Add collapse behavior
+     - Test mobile layout
+     - Verify ARIA support
+
+  3. Content Containers (Planned)
+     - Update spacing system
+     - Implement theme transitions
+     - Test responsive grid
+     - Optimize performance

@@ -1,0 +1,819 @@
+/* Learning Center Styles - Enhanced for Children */
+
+/* Tactile Feedback Styles */
+.button-click {
+    @apply transition transform duration-100 ease-in-out;
+}
+
+.button-click:active {
+    @apply scale-95;
+}
+
+/* Sound Effects */
+.sound-on-click {
+    cursor: pointer;
+}
+
+/* Accessible and Intuitive Navigation Styles */
+.nav-item {
+    @apply p-4 rounded-lg font-bold text-lg transition duration-200;
+}
+
+.nav-item:focus, .nav-item:hover {
+    @apply outline-none ring-4 ring-blue-200;
+}
+
+/* Sidebar styles - Adjustment for Young Children */
+.sidebar {
+    @apply bg-blue-50 border-r-4 border-blue-200;
+    z-index: 10;
+}
+
+.course-outline a.active {
+    @apply bg-blue-100 text-blue-600 font-bold;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.course-outline a:hover {
+    @apply bg-blue-50 transform -translate-y-1;
+    transition: all 0.3s ease;
+}
+
+/* Video player styles - Child-Friendly Enhancements */
+.video-player {
+    @apply border-4 border-yellow-300 shadow-lg rounded-xl overflow-hidden;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.video-controls {
+    @apply text-2xl bg-gradient-to-t from-black/50 to-transparent p-4;
+}
+
+.video-controls button {
+    @apply hover:scale-110 transition-transform duration-200;
+}
+
+/* Progress bar styles - More Engaging */
+.progress-bar {
+    height: 12px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #00a8ff, #00ff88);
+    transition: width 0.3s ease;
+}
+
+/* Interactive exercise styles - Child-Centric Enhancements */
+.exercise-container {
+    @apply p-6 rounded-2xl;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 4px solid rgba(255, 255, 255, 0.2);
+}
+
+.exercise-block {
+    @apply p-6 rounded-2xl cursor-move transition-all duration-200;
+    background: rgba(255, 255, 255, 0.15);
+    border: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+.exercise-block:hover {
+    @apply transform -translate-y-2;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.exercise-block.dragging {
+    @apply scale-110 rotate-2;
+    opacity: 0.8;
+}
+
+.exercise-block.highlight {
+    @apply bg-yellow-100 border-yellow-300;
+    box-shadow: 0 6px 20px rgba(253, 216, 53, 0.5);
+}
+
+.exercise-block:active {
+    @apply scale-95;
+}
+
+/* Note taking styles - Simplified for Children */
+.note-editor {
+    @apply p-4 rounded-xl;
+    min-height: 150px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.note-editor:focus {
+    outline: none;
+    border-color: rgba(0, 168, 255, 0.5);
+    box-shadow: 0 0 0 4px rgba(0, 168, 255, 0.2);
+}
+
+/* Child-friendly UI elements - Further Refinements */
+.btn-child {
+    @apply px-8 py-4 rounded-full text-xl font-bold transition-all duration-300;
+    background: linear-gradient(45deg, #00a8ff, #00ff88);
+    box-shadow: 0 4px 15px rgba(0, 168, 255, 0.3);
+}
+
+.btn-child:hover {
+    @apply transform -translate-y-1;
+    box-shadow: 0 8px 25px rgba(0, 168, 255, 0.4);
+}
+
+.btn-child:active {
+    @apply scale-90;
+    transition: transform 0.1s ease;
+}
+
+.card-child {
+    @apply p-8 rounded-2xl transition-all duration-300 shadow-md;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-child:hover {
+    @apply transform -translate-y-2;
+    box-shadow: 0 12px 30px rgba(0, 168, 255, 0.2);
+    border-color: rgba(0, 168, 255, 0.3);
+}
+
+.card-child:active {
+    @apply scale-95;
+}
+
+/* Achievement badges - Improving Visibility and Attraction */
+.badge {
+    @apply inline-flex items-center justify-center w-16 h-16 rounded-full;
+    background: linear-gradient(45deg, #ffd700, #ffa500);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
+}
+
+.badge-new {
+    animation: pulsate 1.5s ease-in-out infinite;
+}
+
+.badge-locked {
+    @apply grayscale opacity-50;
+    background: linear-gradient(45deg, #808080, #a9a9a9);
+}
+
+/* Enhanced Animations */
+@keyframes pulsate {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes celebrate {
+    0% { transform: scale(1) rotate(0); }
+    25% { transform: scale(1.2) rotate(-5deg); }
+    75% { transform: scale(1.2) rotate(5deg); }
+    100% { transform: scale(1) rotate(0); }
+}
+
+.animate-pulsate {
+    animation: pulsate 2s infinite;
+}
+
+.animate-bounce {
+    animation: bounce 2s infinite;
+}
+
+.celebrate {
+    animation: celebrate 0.5s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .badge {
+        @apply w-12 h-12;
+    }
+
+    .btn-child {
+        @apply px-6 py-3 text-lg;
+    }
+}
+
+/* Toast Notifications */
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    color: white;
+    font-weight: bold;
+    z-index: 1000;
+    animation: slideIn 0.3s ease-out;
+}
+
+.toast.success {
+    background: linear-gradient(45deg, #00a8ff, #00ff88);
+    box-shadow: 0 4px 15px rgba(0, 168, 255, 0.3);
+}
+
+.toast.error {
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    box-shadow: 0 4px 15px rgba(255, 65, 108, 0.3);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Exercise Result Card */
+.result-card {
+    @apply p-6 rounded-2xl text-center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    animation: scaleIn 0.3s ease-out;
+}
+
+.result-card.success {
+    background: linear-gradient(45deg, rgba(0, 168, 255, 0.1), rgba(0, 255, 136, 0.1));
+    border-color: rgba(0, 168, 255, 0.3);
+}
+
+.result-card.needs-improvement {
+    background: linear-gradient(45deg, rgba(255, 65, 108, 0.1), rgba(255, 75, 43, 0.1));
+    border-color: rgba(255, 65, 108, 0.3);
+}
+
+.result-card h3 {
+    @apply text-2xl font-bold mb-4;
+    background: linear-gradient(45deg, #00a8ff, #00ff88);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.result-card.needs-improvement h3 {
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.result-card .feedback {
+    @apply mt-4 p-4 rounded-lg;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Progress Indicators */
+.progress-indicator {
+    @apply inline-flex items-center justify-center px-2 py-1 text-sm rounded-full;
+    background: rgba(0, 168, 255, 0.1);
+    border: 2px solid rgba(0, 168, 255, 0.2);
+}
+
+.chapter-link.visited .progress-indicator {
+    background: rgba(0, 255, 136, 0.1);
+    border-color: rgba(0, 255, 136, 0.2);
+}
+
+.overall-progress {
+    @apply h-2 rounded-full transition-all duration-300;
+    background: linear-gradient(90deg, #00a8ff, #00ff88);
+}
+
+/* Video Player Enhancements */
+.video-controls {
+    @apply grid grid-cols-3 gap-4 items-center p-4;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.video-controls button {
+    @apply p-2 rounded-full transition-all duration-200;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.video-controls button:hover {
+    @apply transform scale-110;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.volume-slider {
+    @apply w-full h-2 rounded-full;
+    background: rgba(255, 255, 255, 0.2);
+    -webkit-appearance: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    @apply w-4 h-4 rounded-full cursor-pointer;
+    -webkit-appearance: none;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.volume-slider::-moz-range-thumb {
+    @apply w-4 h-4 rounded-full cursor-pointer border-0;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Exercise Input Styles */
+.answer-input {
+    @apply w-full p-4 rounded-xl mb-4 transition-all duration-200;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.answer-input:focus {
+    @apply outline-none;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(0, 168, 255, 0.3);
+    box-shadow: 0 0 0 4px rgba(0, 168, 255, 0.1);
+}
+
+/* Keyboard Shortcut Hints */
+.shortcut-hint {
+    @apply absolute bottom-2 right-2 px-2 py-1 text-xs rounded;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Loading States */
+.loading {
+    @apply relative pointer-events-none opacity-50;
+}
+
+.loading::after {
+    content: '';
+    @apply absolute inset-0 flex items-center justify-center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.loading::before {
+    content: '';
+    @apply absolute top-1/2 left-1/2 w-12 h-12 -mt-6 -ml-6 rounded-full;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top-color: #00a8ff;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Achievement Notification */
+.achievement-notification {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    background: linear-gradient(45deg, #ffd700, #ffa500);
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px rgba(255, 215, 0, 0.3);
+    z-index: 1100;
+    max-width: 400px;
+    transform-origin: top right;
+}
+
+.achievement-icon {
+    font-size: 3rem;
+    margin-right: 1.5rem;
+    animation: spin 2s linear infinite;
+}
+
+.achievement-content h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #1a1a1a;
+}
+
+.achievement-content p {
+    font-size: 1.1rem;
+    color: #333;
+    opacity: 0.9;
+}
+
+/* Mascot */
+.mascot {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 150px;
+    height: 150px;
+    z-index: 900;
+}
+
+.mascot img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.mascot-message {
+    position: absolute;
+    top: -80px;
+    right: 0;
+    background: white;
+    color: #333;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 250px;
+    font-size: 1.1rem;
+    transform-origin: bottom right;
+}
+
+.mascot-message::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 20px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid white;
+}
+
+/* Completion Celebration */
+.completion-celebration {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1200;
+    overflow: hidden;
+}
+
+.firework {
+    position: absolute;
+    bottom: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: firework 1s ease-out forwards;
+}
+
+@keyframes firework {
+    0% {
+        transform: translateY(100vh);
+        background: #ffd700;
+    }
+    50% {
+        transform: translateY(20vh);
+    }
+    60% {
+        transform: translateY(20vh);
+        width: 10px;
+        height: 10px;
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(20vh);
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        opacity: 0;
+        background: radial-gradient(circle, #ffd700, #ffa500, transparent 70%);
+    }
+}
+
+/* Milestone Notification */
+.milestone-notification {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    background: linear-gradient(45deg, #00a8ff, #00ff88);
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px rgba(0, 168, 255, 0.3);
+    z-index: 1100;
+    color: white;
+}
+
+.milestone-icon {
+    font-size: 2.5rem;
+    margin-right: 1rem;
+    animation: bounce 1s ease infinite;
+}
+
+.milestone-content h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+.milestone-content p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Achievement Badge Wall */
+.achievement-wall {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    margin-top: 2rem;
+}
+
+.achievement-badge {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+}
+
+.achievement-badge:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.achievement-badge.locked {
+    filter: grayscale(1);
+    opacity: 0.5;
+}
+
+.achievement-badge .icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.achievement-badge .title {
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0.3rem;
+}
+
+.achievement-badge .description {
+    font-size: 0.8rem;
+    text-align: center;
+    opacity: 0.7;
+}
+
+.achievement-badge .unlock-date {
+    font-size: 0.7rem;
+    opacity: 0.5;
+    margin-top: 0.5rem;
+}
+
+/* Progress Indicators */
+.progress-indicator {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.progress-indicator.completed {
+    background: linear-gradient(45deg, #00a8ff, #00ff88);
+    box-shadow: 0 2px 8px rgba(0, 168, 255, 0.3);
+}
+
+.progress-indicator.in-progress {
+    background: linear-gradient(45deg, #ffd700, #ffa500);
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .achievement-notification {
+        top: 1rem;
+        right: 1rem;
+        left: 1rem;
+        max-width: none;
+    }
+
+    .mascot {
+        width: 100px;
+        height: 100px;
+        bottom: 1rem;
+        right: 1rem;
+    }
+
+    .mascot-message {
+        max-width: 200px;
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+
+    .milestone-notification {
+        left: 1rem;
+        right: 1rem;
+        transform: none;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .milestone-icon {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .achievement-wall {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 1rem;
+        padding: 1rem;
+    }
+}
+
+/* Animations */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes wave {
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(-15deg); }
+    75% { transform: rotate(15deg); }
+}
+
+@keyframes sparkle {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .achievement-notification,
+    .milestone-notification {
+        background: black;
+        border: 2px solid white;
+    }
+
+    .achievement-content h3,
+    .achievement-content p {
+        color: white;
+    }
+
+    .mascot-message {
+        background: black;
+        color: white;
+        border: 2px solid white;
+    }
+
+    .mascot-message::after {
+        border-top-color: white;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .achievement-notification,
+    .milestone-notification,
+    .mascot,
+    .achievement-badge {
+        transition: none;
+    }
+
+    .achievement-icon,
+    .milestone-icon {
+        animation: none;
+    }
+
+    .firework {
+        display: none;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .toast.success {
+        background: linear-gradient(45deg, #004466, #006633);
+    }
+
+    .toast.error {
+        background: linear-gradient(45deg, #660000, #663300);
+    }
+
+    .achievement-notification {
+        background: linear-gradient(45deg, #664400, #663300);
+    }
+}
+
+/* Loading indicator */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s linear infinite;
+}
+
+.loading-text {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+/* Accessibility improvements */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+[role="button"],
+button {
+    cursor: pointer;
+}
+
+:focus {
+    outline: 3px solid #00a8ff;
+    outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+:focus-visible {
+    outline: 3px solid #00a8ff;
+    outline-offset: 2px;
+} 

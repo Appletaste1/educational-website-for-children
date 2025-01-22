@@ -1,0 +1,224 @@
+/* Parent Dashboard Styles */
+
+/* Card Styles */
+.child-card {
+    @apply transition-transform duration-300 hover:scale-102;
+}
+
+.child-card:hover {
+    @apply shadow-lg;
+}
+
+/* Progress Bars */
+.progress-bar {
+    @apply h-2 bg-gray-700 rounded-full overflow-hidden;
+}
+
+.progress-bar-fill {
+    @apply h-full transition-all duration-500 ease-out;
+}
+
+.progress-bar-fill.english {
+    @apply bg-blue-500;
+}
+
+.progress-bar-fill.math {
+    @apply bg-green-500;
+}
+
+.progress-bar-fill.science {
+    @apply bg-purple-500;
+}
+
+/* Activity Indicators */
+.activity-indicator {
+    @apply w-2 h-2 rounded-full;
+}
+
+.activity-indicator.completed {
+    @apply bg-green-400;
+}
+
+.activity-indicator.achievement {
+    @apply bg-yellow-400;
+}
+
+.activity-indicator.started {
+    @apply bg-blue-400;
+}
+
+/* Achievement Badges */
+.achievement-badge {
+    @apply w-16 h-16 rounded-full flex items-center justify-center transition-transform duration-300;
+}
+
+.achievement-badge:hover {
+    @apply transform scale-110;
+}
+
+.achievement-badge.locked {
+    @apply bg-gray-600 opacity-50;
+}
+
+/* Switch Toggle */
+.switch {
+    @apply relative inline-block w-12 h-6;
+}
+
+.switch input {
+    @apply opacity-0 w-0 h-0;
+}
+
+.slider {
+    @apply absolute cursor-pointer inset-0 bg-gray-600 transition-all duration-300 rounded-full;
+}
+
+.slider:before {
+    content: "";
+    @apply absolute h-5 w-5 left-0.5 bottom-0.5 bg-white transition-all duration-300 rounded-full;
+}
+
+input:checked + .slider {
+    @apply bg-blue-500;
+}
+
+input:focus + .slider {
+    @apply ring-2 ring-blue-400;
+}
+
+input:checked + .slider:before {
+    @apply transform translate-x-6;
+}
+
+/* Form Controls */
+.time-input {
+    @apply px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-2 focus:ring-blue-400;
+}
+
+select {
+    @apply appearance-none bg-gray-700 border border-gray-600 text-white rounded-lg px-4 py-2 pr-8 
+    focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-500;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+}
+
+/* Checkbox Styles */
+input[type="checkbox"] {
+    @apply rounded border-gray-600 text-blue-500 focus:ring-blue-400 focus:ring-offset-gray-900;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+    .child-card {
+        @apply transform-none hover:scale-100;
+    }
+
+    .achievement-badge {
+        @apply w-12 h-12;
+    }
+
+    .achievement-badge span {
+        @apply text-xl;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .progress-bar-fill {
+        @apply border;
+    }
+
+    .slider {
+        @apply border;
+    }
+
+    input:checked + .slider {
+        @apply bg-blue-600;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .child-card,
+    .achievement-badge,
+    .progress-bar-fill,
+    .slider,
+    .slider:before {
+        @apply transition-none transform-none;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    select {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    }
+}
+
+/* Animations */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.slide-in {
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+/* Loading States */
+.loading {
+    @apply relative min-h-[100px];
+}
+
+.loading::after {
+    content: "";
+    @apply absolute inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center;
+}
+
+.loading::before {
+    content: "";
+    @apply absolute left-1/2 top-1/2 w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin;
+    transform: translate(-50%, -50%);
+}
+
+/* Accessibility Improvements */
+.visually-hidden {
+    @apply sr-only;
+}
+
+[role="tab"] {
+    @apply outline-none focus:ring-2 focus:ring-blue-400;
+}
+
+/* Focus Visible Polyfill */
+.js-focus-visible :focus:not(.focus-visible) {
+    @apply outline-none;
+}
+
+.js-focus-visible .focus-visible {
+    @apply outline-none ring-2 ring-blue-400;
+} 

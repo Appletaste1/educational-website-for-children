@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常见问题 - AI Builder 星际探索</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Noto Sans SC for Chinese text -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="styles/main.css">
+
+    <style>
+        /* FAQ accordion styles */
+        .faq-item {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-toggle {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Include Navigation -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Star background -->
+    <div id="stars" class="fixed inset-0 z-0"></div>
+
+    <!-- Hero Section -->
+    <section class="relative z-10 text-center py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto page-transition">
+            <h1 class="text-4xl sm:text-5xl font-bold mb-4 neon-text">
+                常见问题解答
+            </h1>
+            <p class="text-xl text-blue-200 mb-12 max-w-2xl mx-auto">
+                这里收集了家长和学员最关心的问题，
+                帮助您更好地了解我们的课程和服务。
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ Categories -->
+    <section class="relative z-10 py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="filter-btn btn-secondary active" data-category="all">
+                    全部问题
+                </button>
+                <button class="filter-btn btn-secondary" data-category="course">
+                    课程相关
+                </button>
+                <button class="filter-btn btn-secondary" data-category="tech">
+                    技术支持
+                </button>
+                <button class="filter-btn btn-secondary" data-category="payment">
+                    付费相关
+                </button>
+                <button class="filter-btn btn-secondary" data-category="other">
+                    其他问题
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto">
+            <!-- Course Related Questions -->
+            <div class="space-y-6">
+                <div class="glass-card faq-item" data-category="course">
+                    <div class="flex justify-between items-center cursor-pointer p-6" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold text-blue-300">课程是否需要编程基础？</h3>
+                        <span class="faq-toggle text-blue-300 text-2xl">+</span>
+                    </div>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-300">
+                            完全不需要编程基础。我们的课程从最基础的概念开始，
+                            采用图形化编程工具，让孩子们可以轻松入门。
+                            通过积木式的拖拽编程，孩子们能快速理解编程逻辑，
+                            并逐步过渡到更高级的编程概念。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="glass-card faq-item" data-category="course">
+                    <div class="flex justify-between items-center cursor-pointer p-6" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold text-blue-300">适合什么年龄的孩子参加？</h3>
+                        <span class="faq-toggle text-blue-300 text-2xl">+</span>
+                    </div>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-300">
+                            我们的课程主要面向3-8岁的孩子，并根据年龄段设计了不同的课程内容：
+                            <br>• 3-5岁：启蒙课程，通过游戏认识AI和编程
+                            <br>• 5-7岁：基础课程，开始简单的项目实践
+                            <br>• 6-8岁：进阶课程，深入AI应用和创新项目
+                        </p>
+                    </div>
+                </div>
+
+                <div class="glass-card faq-item" data-category="course">
+                    <div class="flex justify-between items-center cursor-pointer p-6" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold text-blue-300">线上课程如何保证学习效果？</h3>
+                        <span class="faq-toggle text-blue-300 text-2xl">+</span>
+                    </div>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-300">
+                            我们通过以下方式确保线上学习的效果：
+                            <br>• 小班制教学，每班最多6-8人
+                            <br>• AI助教系统提供实时辅导
+                            <br>• 详细的课后练习和项目实践
+                            <br>• 定期的学习效果评估和反馈
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Support Questions -->
+            <div class="space-y-6 mt-8">
+                <div class="glass-card faq-item" data-category="tech">
+                    <div class="flex justify-between items-center cursor-pointer p-6" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold text-blue-300">需要准备什么设备？</h3>
+                        <span class="faq-toggle text-blue-300 text-2xl">+</span>
+                    </div>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-300">
+                            基本设备要求：
+                            <br>• 电脑或平板（建议屏幕尺寸≥10寸）
+                            <br>• 稳定的网络连接
+                            <br>• 摄像头和麦克风（用于课堂互动）
+                            <br>具体的设备配置建议会在报名后详细说明。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="glass-card faq-item" data-category="tech">
+                    <div class="flex justify-between items-center cursor-pointer p-6" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold text-blue-300">遇到技术问题怎么办？</h3>
+                        <span class="faq-toggle text-blue-300 text-2xl">+</span>
+                    </div>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-300">
+                            我们提供全方位的技术支持：
+                            <br>• 7x24小时在线客服
+                            <br>• 课前设备调试指导
+                            <br>• 课中实时技术支持
+                            <br>• 详细的故障排除指南
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Related Questions -->
+            <div class="space-y-6 mt-8">
+                <div class="glass-card faq-item" data-category="payment">
+                    <div class="flex justify-between items-center cursor-pointer p-6" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold text-blue-300">收费标准是怎样的？</h3>
+                        <span class="faq-toggle text-blue-300 text-2xl">+</span>
+                    </div>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-300">
+                            我们提供灵活的付费方案：
+                            <br>• 单节课体验：99元/课
+                            <br>• 月度会员：699元/月（每周2课时）
+                            <br>• 季度会员：1899元/季（赠送额外4课时）
+                            <br>• 年度会员：6899元/年（赠送额外16课时）
+                        </p>
+                    </div>
+                </div>
+
+                <div class="glass-card faq-item" data-category="payment">
+                    <div class="flex justify-between items-center cursor-pointer p-6" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold text-blue-300">可以申请退款吗？</h3>
+                        <span class="faq-toggle text-blue-300 text-2xl">+</span>
+                    </div>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-300">
+                            我们的退款政策：
+                            <br>• 首次体验课不满意可全额退款
+                            <br>• 课程包购买后7天内可无理由退款
+                            <br>• 超过7天按实际消课数量扣除费用后退还余额
+                            <br>• 年度会员可分期付款，没上的课程随时可退
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Questions -->
+            <div class="space-y-6 mt-8">
+                <div class="glass-card faq-item" data-category="other">
+                    <div class="flex justify-between items-center cursor-pointer p-6" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold text-blue-300">如何保护孩子的隐私安全？</h3>
+                        <span class="faq-toggle text-blue-300 text-2xl">+</span>
+                    </div>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-300">
+                            我们高度重视学员隐私保护：
+                            <br>• 采用加密技术保护个人信息
+                            <br>• 严格的数据访问控制
+                            <br>• 定期的安全审计
+                            <br>• 家长可随时查看和管理孩子的学习数据
+                        </p>
+                    </div>
+                </div>
+
+                <div class="glass-card faq-item" data-category="other">
+                    <div class="flex justify-between items-center cursor-pointer p-6" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold text-blue-300">可以试听课程吗？</h3>
+                        <span class="faq-toggle text-blue-300 text-2xl">+</span>
+                    </div>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-300">
+                            我们提供多种试听选项：
+                            <br>• 免费公开课（每周日）
+                            <br>• 99元体验课（可抵扣正式课程）
+                            <br>• 线上课程demo视频
+                            <br>• 预约1对1课程咨询
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Support -->
+    <section class="relative z-10 text-center py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto neon-box p-12 rounded-2xl">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-8 neon-text">
+                还有其他问题？
+            </h2>
+            <p class="text-lg text-gray-300 mb-12 max-w-2xl mx-auto">
+                如果您没有找到想要的答案，欢迎联系我们的客服团队，
+                我们将竭诚为您解答任何疑问。
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="contact.html" class="btn-primary">
+                    联系客服
+                </a>
+                <a href="#" class="btn-secondary">
+                    在线咨询
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 py-8 text-gray-400 text-center border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-white font-semibold mb-4">关于我们</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">公司介绍</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">教学理念</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">加入我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">学习资源</h4>
+                    <ul class="space-y-2">
+                        <li><a href="courses.html" class="hover:text-white transition-colors">课程介绍</a></li>
+                        <li><a href="community.html" class="hover:text-white transition-colors">学员作品</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition-colors">常见问题</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">联系我们</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">在线客服</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">电话咨询</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">意见反馈</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">关注我们</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">微信公众号</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">官方微博</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">抖音号</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800">
+                <p>&copy; 2024 AI Builder 星际探索. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Load navigation
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+            });
+
+        // Create stars background
+        function createStars() {
+            const stars = document.getElementById('stars');
+            const count = 100;
+            
+            for (let i = 0; i < count; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 3}s`;
+                stars.appendChild(star);
+            }
+        }
+
+        // Toggle FAQ items
+        function toggleFAQ(element) {
+            const item = element.parentElement;
+            const wasActive = item.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Open clicked item if it wasn't active
+            if (!wasActive) {
+                item.classList.add('active');
+            }
+        }
+
+        // FAQ filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    // Filter FAQ items
+                    const category = button.getAttribute('data-category');
+                    faqItems.forEach(item => {
+                        if (category === 'all' || item.getAttribute('data-category') === category) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+
+        // Initialize when page loads
+        window.addEventListener('load', () => {
+            createStars();
+        });
+    </script>
+</body>
+</html> 

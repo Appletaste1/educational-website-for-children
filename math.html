@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学学习 - 儿童教育平台</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <link href="styles/tailwind.css" rel="stylesheet">
+    <link href="styles/learning.css" rel="stylesheet">
+    <link href="styles/math.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <div class="flex min-h-screen">
+        <!-- 侧边栏 -->
+        <aside class="w-64 bg-gray-800 fixed h-full overflow-y-auto transition-transform duration-300 transform md:-translate-x-full md:fixed" id="sidebar">
+            <div class="p-6">
+                <h2 class="text-2xl font-bold mb-6">数学学习</h2>
+                <nav>
+                    <div class="space-y-4">
+                        <a href="#addition" class="block p-3 rounded-lg hover:bg-gray-700 transition-all duration-200">加法练习</a>
+                        <a href="#subtraction" class="block p-3 rounded-lg hover:bg-gray-700 transition-all duration-200">减法练习</a>
+                        <a href="#recognition" class="block p-3 rounded-lg hover:bg-gray-700 transition-all duration-200">数字认知</a>
+                    </div>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="flex-1 ml-64 p-6 md:ml-0">
+            <div class="max-w-4xl mx-auto">
+                <!-- 练习选择区 -->
+                <section class="mb-12">
+                    <h2 class="text-3xl font-bold mb-6">选择练习类型</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <button class="exercise-btn btn-child" data-exercise="addition_level1">
+                            <div class="text-4xl mb-2">➕</div>
+                            <h3 class="text-xl font-bold mb-2">加法练习</h3>
+                            <p class="text-gray-300">学习简单的加法运算</p>
+                        </button>
+                        <button class="exercise-btn btn-child" data-exercise="subtraction_level1">
+                            <div class="text-4xl mb-2">➖</div>
+                            <h3 class="text-xl font-bold mb-2">减法练习</h3>
+                            <p class="text-gray-300">学习简单的减法运算</p>
+                        </button>
+                        <button class="exercise-btn btn-child" data-exercise="number_recognition">
+                            <div class="text-4xl mb-2">🔢</div>
+                            <h3 class="text-xl font-bold mb-2">数字认知</h3>
+                            <p class="text-gray-300">认识和数数练习</p>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- 练习区域 -->
+                <section class="exercise-container mb-12 bg-gray-800 rounded-xl p-6">
+                    <div class="text-center text-xl">
+                        选择上方的练习类型开始学习
+                    </div>
+                </section>
+
+                <!-- 虚拟教具区 -->
+                <section class="manipulatives-container mb-12">
+                    <h2 class="text-2xl font-bold mb-4">学习工具</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="number-line bg-gray-800 p-4 rounded-xl">
+                            <div class="flex justify-between mb-2">
+                                <span>0</span>
+                                <span>5</span>
+                                <span>10</span>
+                                <span>15</span>
+                                <span>20</span>
+                            </div>
+                            <div class="line-container relative h-8">
+                                <div class="absolute inset-0 bg-blue-500 rounded-full h-2 top-1/2 transform -translate-y-1/2"></div>
+                                <div class="marker absolute w-4 h-4 bg-yellow-400 rounded-full top-1/2 transform -translate-y-1/2 cursor-pointer" style="left: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="counting-blocks grid grid-cols-5 gap-2 bg-gray-800 p-4 rounded-xl">
+                            <!-- Blocks will be added dynamically -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 反馈区域 -->
+                <div class="feedback-container fixed bottom-24 left-1/2 transform -translate-x-1/2"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 吉祥物 -->
+    <div class="mascot">
+        <img src="assets/mascots/default.png" alt="小智" />
+    </div>
+
+    <!-- 底部工具栏 -->
+    <div class="fixed bottom-0 left-64 right-0 bg-gray-800 bg-opacity-90 backdrop-filter backdrop-blur-lg md:left-0">
+        <div class="container mx-auto px-6 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <button class="btn-child" aria-label="返回课程">返回课程</button>
+                <button class="btn-child" aria-label="帮助">帮助</button>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="btn-child" id="toggle-volume">音量</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 音量控制器 -->
+    <div class="fixed bottom-20 right-4 bg-gray-800 p-4 rounded-lg shadow-lg hidden" id="volume-controls">
+        <h3 class="text-lg font-bold mb-2">音量控制</h3>
+        <div class="space-y-4">
+            <div>
+                <label for="sfx-volume" class="block mb-1">音效</label>
+                <input type="range" id="sfx-volume" class="volume-slider" min="0" max="1" step="0.1" value="0.5">
+            </div>
+            <div>
+                <label for="voice-volume" class="block mb-1">语音</label>
+                <input type="range" id="voice-volume" class="volume-slider" min="0" max="1" step="0.1" value="0.5">
+            </div>
+        </div>
+    </div>
+
+    <!-- 移动端导航遮罩 -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 hidden md:hidden" id="sidebar-overlay"></div>
+
+    <script type="module" src="js/math-module.js"></script>
+</body>
+</html> 

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家长管理中心 - 儿童教育平台</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="styles/tailwind.css" rel="stylesheet">
+    <link href="styles/auth.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Auth Container -->
+    <div class="auth-container"></div>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="modal-overlay hidden" role="dialog" aria-modal="true">
+        <div class="modal-content" tabindex="-1">
+            <!-- Modal content will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <!-- Feedback Container -->
+    <div class="feedback-container"></div>
+
+    <!-- Protected Content Container -->
+    <div id="protected-content" class="hidden">
+        <!-- Navigation -->
+        <nav class="fixed top-0 left-0 right-0 bg-gray-800 bg-opacity-90 backdrop-filter backdrop-blur-lg z-50">
+            <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="/" class="text-2xl font-bold text-blue-400">儿童教育平台</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="btn-child" onclick="window.location.href='/'">返回首页</button>
+                    <div class="relative">
+                        <img src="assets/avatar-placeholder.png" alt="用户头像" class="w-10 h-10 rounded-full cursor-pointer">
+                        <span class="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-gray-800"></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="container mx-auto px-4 pt-20 pb-12">
+            <h1 class="text-4xl font-bold mb-8">家长管理中心</h1>
+
+            <!-- Children Overview -->
+            <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <!-- Child Card Template -->
+                <div class="child-card bg-gray-800 rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="assets/avatar-child.png" alt="孩子头像" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h3 class="text-xl font-bold">小明</h3>
+                            <p class="text-gray-400">8岁</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>总体进度</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="h-2 bg-gray-700 rounded-full">
+                                <div class="h-full bg-blue-500 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div>
+                                <p class="text-2xl font-bold text-green-400">12</p>
+                                <p class="text-sm text-gray-400">完成课程</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-bold text-yellow-400">8</p>
+                                <p class="text-sm text-gray-400">获得成就</p>
+                            </div>
+                        </div>
+                        <button class="btn-child w-full" onclick="showChildDetails('child1')">查看详情</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Detailed Progress -->
+            <section class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Learning Progress -->
+                <div class="bg-gray-800 rounded-xl p-6">
+                    <h2 class="text-2xl font-bold mb-6">学习进度</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>英语</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="h-2 bg-gray-700 rounded-full">
+                                <div class="h-full bg-blue-500 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>数学</span>
+                                <span>65%</span>
+                            </div>
+                            <div class="h-2 bg-gray-700 rounded-full">
+                                <div class="h-full bg-blue-500 rounded-full" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>科学</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="h-2 bg-gray-700 rounded-full">
+                                <div class="h-full bg-blue-500 rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activities -->
+                <div class="bg-gray-800 rounded-xl p-6">
+                    <h2 class="text-2xl font-bold mb-6">最近活动</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 mt-2 rounded-full bg-green-400 mr-3"></div>
+                            <div>
+                                <p class="font-medium">完成英语课程《动物朋友》</p>
+                                <p class="text-sm text-gray-400">2024-03-01 15:30</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 mt-2 rounded-full bg-yellow-400 mr-3"></div>
+                            <div>
+                                <p class="font-medium">获得成就"数学小达人"</p>
+                                <p class="text-sm text-gray-400">2024-03-01 14:20</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 mt-2 rounded-full bg-blue-400 mr-3"></div>
+                            <div>
+                                <p class="font-medium">开始学习科学课程《植物生长》</p>
+                                <p class="text-sm text-gray-400">2024-03-01 13:45</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievements -->
+                <div class="bg-gray-800 rounded-xl p-6">
+                    <h2 class="text-2xl font-bold mb-6">成就徽章</h2>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="text-center">
+                            <div class="w-16 h-16 mx-auto mb-2 rounded-full bg-yellow-400 flex items-center justify-center">
+                                <span class="text-2xl">🌟</span>
+                            </div>
+                            <p class="text-sm">学习之星</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 mx-auto mb-2 rounded-full bg-blue-400 flex items-center justify-center">
+                                <span class="text-2xl">📚</span>
+                            </div>
+                            <p class="text-sm">知识探索者</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 mx-auto mb-2 rounded-full bg-green-400 flex items-center justify-center">
+                                <span class="text-2xl">🎯</span>
+                            </div>
+                            <p class="text-sm">目标达成</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings -->
+            <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Account Settings -->
+                <div class="bg-gray-800 rounded-xl p-6">
+                    <h2 class="text-2xl font-bold mb-6">账户设置</h2>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block mb-1">每日学习时长限制</label>
+                            <select class="w-full px-4 py-2 rounded-lg bg-gray-700">
+                                <option>1小时</option>
+                                <option>2小时</option>
+                                <option>3小时</option>
+                                <option>4小时</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block mb-1">允许访问时间</label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="time" value="09:00" class="px-4 py-2 rounded-lg bg-gray-700">
+                                <input type="time" value="18:00" class="px-4 py-2 rounded-lg bg-gray-700">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block mb-1">内容过滤级别</label>
+                            <select class="w-full px-4 py-2 rounded-lg bg-gray-700">
+                                <option>严格</option>
+                                <option>中等</option>
+                                <option>宽松</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-child w-full">保存设置</button>
+                    </form>
+                </div>
+
+                <!-- Notification Settings -->
+                <div class="bg-gray-800 rounded-xl p-6">
+                    <h2 class="text-2xl font-bold mb-6">通知设置</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span>每日学习报告</span>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>成就解锁提醒</span>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>超时学习警告</span>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>课程完成提醒</span>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="mt-6">
+                            <label class="block mb-1">通知方式</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" checked class="mr-2">
+                                    电子邮件
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" checked class="mr-2">
+                                    短信
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" checked class="mr-2">
+                                    应用内通知
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Login Required Message -->
+    <div id="login-required" class="fixed inset-0 flex items-center justify-center">
+        <div class="text-center">
+            <h2 class="text-2xl font-bold mb-4">请先登录</h2>
+            <p class="mb-6">登录后即可访问家长管理中心</p>
+            <button onclick="authModule.showLoginForm()" class="btn-child">登录</button>
+            <p class="mt-4">
+                还没有账号？
+                <button onclick="authModule.showRegisterForm()" class="text-blue-400 hover:text-blue-300">立即注册</button>
+            </p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module">
+        import { authModule } from './js/auth-module.js';
+        window.authModule = authModule; // Make it available globally for onclick handlers
+
+        // Check authentication status and show/hide content accordingly
+        const protectedContent = document.getElementById('protected-content');
+        const loginRequired = document.getElementById('login-required');
+
+        async function checkAuth() {
+            const isAuthenticated = await authModule.checkSession();
+            if (isAuthenticated) {
+                protectedContent.classList.remove('hidden');
+                loginRequired.classList.add('hidden');
+                loadDashboardData();
+            } else {
+                protectedContent.classList.add('hidden');
+                loginRequired.classList.remove('hidden');
+            }
+        }
+
+        // Load dashboard data
+        async function loadDashboardData() {
+            try {
+                const response = await fetch('/api/parent/dashboard');
+                if (!response.ok) throw new Error('Failed to load dashboard data');
+                
+                const data = await response.json();
+                updateDashboard(data);
+            } catch (error) {
+                console.error('Error loading dashboard:', error);
+                authModule.showFeedback('加载数据失败', 'error');
+            }
+        }
+
+        // Update dashboard with data
+        function updateDashboard(data) {
+            // Update children cards
+            const childrenContainer = document.querySelector('.children-container');
+            if (childrenContainer && data.children) {
+                childrenContainer.innerHTML = data.children.map(child => `
+                    <div class="child-card bg-gray-800 rounded-xl p-6">
+                        <div class="flex items-center mb-4">
+                            <img src="${child.avatar}" alt="${child.name}的头像" class="w-16 h-16 rounded-full mr-4">
+                            <div>
+                                <h3 class="text-xl font-bold">${child.name}</h3>
+                                <p class="text-gray-400">${child.age}岁</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>总体进度</span>
+                                    <span>${child.progress}%</span>
+                                </div>
+                                <div class="h-2 bg-gray-700 rounded-full">
+                                    <div class="h-full bg-blue-500 rounded-full" style="width: ${child.progress}%"></div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 text-center">
+                                <div>
+                                    <p class="text-2xl font-bold text-green-400">${child.completedCourses}</p>
+                                    <p class="text-sm text-gray-400">完成课程</p>
+                                </div>
+                                <div>
+                                    <p class="text-2xl font-bold text-yellow-400">${child.achievements}</p>
+                                    <p class="text-sm text-gray-400">获得成就</p>
+                                </div>
+                            </div>
+                            <button class="btn-child w-full" onclick="showChildDetails('${child.id}')">查看详情</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Update recent activities
+            const activitiesContainer = document.querySelector('.activities-container');
+            if (activitiesContainer && data.recentActivities) {
+                activitiesContainer.innerHTML = data.recentActivities.map(activity => `
+                    <div class="flex items-start">
+                        <div class="w-2 h-2 mt-2 rounded-full bg-${activity.type}-400 mr-3"></div>
+                        <div>
+                            <p class="font-medium">${activity.description}</p>
+                            <p class="text-sm text-gray-400">${activity.time}</p>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Update achievements
+            const achievementsContainer = document.querySelector('.achievements-container');
+            if (achievementsContainer && data.achievements) {
+                achievementsContainer.innerHTML = data.achievements.map(achievement => `
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-2 rounded-full bg-${achievement.color}-400 flex items-center justify-center">
+                            <span class="text-2xl">${achievement.icon}</span>
+                        </div>
+                        <p class="text-sm">${achievement.name}</p>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Show child details
+        function showChildDetails(childId) {
+            // Implementation for showing detailed child progress
+        }
+
+        // Initialize the page
+        checkAuth();
+    </script>
+</body>
+</html> 

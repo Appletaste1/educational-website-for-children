@@ -1,0 +1,129 @@
+<!-- Header -->
+<header class="theme-transition" style="background-color: var(--color-background); padding: var(--spacing-lg) 0;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <!-- Hero Title -->
+            <h1 class="theme-transition" style="
+                color: var(--color-primary);
+                font-size: calc(var(--heading-h1) * 1.2);
+                font-family: var(--font-family);
+                line-height: var(--line-height);
+                margin-bottom: var(--spacing-md);
+            ">
+                探索编程的奇妙世界
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="theme-transition" style="
+                color: var(--color-text);
+                font-size: var(--heading-h4);
+                margin-bottom: var(--spacing-lg);
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+            ">
+                为3-8岁儿童打造的趣味编程学习平台，通过游戏和互动激发创造力
+            </p>
+
+            <!-- Call to Action Buttons -->
+            <div class="flex justify-center space-x-4">
+                <a href="signup.html" class="theme-transition theme-interactive cta-button primary-cta" role="button" aria-label="开始免费试用">
+                    开始免费试用
+                </a>
+                <a href="courses.html" class="theme-transition theme-interactive cta-button secondary-cta" role="button" aria-label="了解课程详情">
+                    了解课程详情
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<style>
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: calc(var(--spacing-unit) * 0.5);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--animation-duration) var(--animation-easing);
+}
+
+.primary-cta {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+
+.primary-cta:hover {
+    background-color: var(--color-secondary);
+}
+
+.secondary-cta {
+    background-color: transparent;
+    color: var(--color-text);
+    border: 2px solid var(--color-text);
+}
+
+.secondary-cta:hover {
+    background-color: var(--color-text);
+    color: var(--color-background);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+    header {
+        padding: var(--spacing-md) 0;
+    }
+
+    h1 {
+        font-size: calc(var(--heading-h2) * 1.1) !important;
+    }
+
+    p {
+        font-size: var(--heading-h5) !important;
+    }
+
+    .flex.justify-center {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-md);
+    }
+
+    .space-x-4 > * + * {
+        margin-left: 0;
+    }
+
+    .cta-button {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+/* High Contrast Mode Adjustments */
+[data-theme="high-contrast"] .primary-cta {
+    background-color: var(--color-text);
+    color: var(--color-background);
+    border: 2px solid var(--color-text);
+}
+
+[data-theme="high-contrast"] .secondary-cta {
+    border-width: 3px;
+}
+
+/* Dark Mode Adjustments */
+[data-theme="dark"] .primary-cta {
+    box-shadow: 0 0 calc(var(--spacing-unit) * 0.5) var(--color-primary);
+}
+
+[data-theme="dark"] .secondary-cta {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+}
+
+[data-theme="dark"] .secondary-cta:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-background);
+}
+</style> 

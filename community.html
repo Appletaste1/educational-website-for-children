@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社区成果展示 - AI Builder 星际探索</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Noto Sans SC for Chinese text -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="styles/main.css">
+
+    <style>
+        /* Project card hover effect */
+        .project-card {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Image hover zoom effect */
+        .image-container {
+            overflow: hidden;
+        }
+
+        .image-container img {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Filter button styles */
+        .filter-btn.active {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Include Navigation -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Star background -->
+    <div id="stars" class="fixed inset-0 z-0"></div>
+
+    <!-- Hero Section -->
+    <section class="relative z-10 text-center py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto page-transition">
+            <h1 class="text-4xl sm:text-5xl font-bold mb-4 neon-text">
+                创意无限 · 共同成长
+            </h1>
+            <p class="text-xl text-blue-200 mb-12 max-w-2xl mx-auto">
+                探索我们学员的精彩作品，感受孩子们的创造力与想象力，
+                一起见证他们在 AI 与科技领域的成长历程。
+            </p>
+        </div>
+    </section>
+
+    <!-- Project Filters -->
+    <section class="relative z-10 py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="filter-btn btn-secondary active" data-filter="all">
+                    全部作品
+                </button>
+                <button class="filter-btn btn-secondary" data-filter="robotics">
+                    机器人作品
+                </button>
+                <button class="filter-btn btn-secondary" data-filter="programming">
+                    编程项目
+                </button>
+                <button class="filter-btn btn-secondary" data-filter="ai">
+                    AI 应用
+                </button>
+                <button class="filter-btn btn-secondary" data-filter="design">
+                    创意设计
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center neon-text">精选作品</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="glass-card project-card" data-category="robotics">
+                    <div class="image-container aspect-w-16 aspect-h-9 mb-4">
+                        <div class="w-full h-48 bg-gray-800 rounded-lg"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-blue-300 mb-2">智能垃圾分类机器人</h3>
+                    <p class="text-gray-300 mb-4">
+                        8岁的小朋友设计的环保助手，能准确识别并分类不同类型的垃圾。
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-400">作者：小明 (8岁)</span>
+                        <button class="btn-secondary text-sm">查看详情</button>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card project-card" data-category="programming">
+                    <div class="image-container aspect-w-16 aspect-h-9 mb-4">
+                        <div class="w-full h-48 bg-gray-800 rounded-lg"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-blue-300 mb-2">趣味编程游戏</h3>
+                    <p class="text-gray-300 mb-4">
+                        7岁的小朋友开发的益智游戏，通过简单的编程指令控制角色移动。
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-400">作者：小红 (7岁)</span>
+                        <button class="btn-secondary text-sm">查看详情</button>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glass-card project-card" data-category="ai">
+                    <div class="image-container aspect-w-16 aspect-h-9 mb-4">
+                        <div class="w-full h-48 bg-gray-800 rounded-lg"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-blue-300 mb-2">AI 植物识别助手</h3>
+                    <p class="text-gray-300 mb-4">
+                        6岁的小朋友利用 AI 技术开发的植物识别工具，帮助认识身边的植物。
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-400">作者：小华 (6岁)</span>
+                        <button class="btn-secondary text-sm">查看详情</button>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="glass-card project-card" data-category="design">
+                    <div class="image-container aspect-w-16 aspect-h-9 mb-4">
+                        <div class="w-full h-48 bg-gray-800 rounded-lg"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-blue-300 mb-2">未来城市设计</h3>
+                    <p class="text-gray-300 mb-4">
+                        8岁的小朋友设计的智能城市模型，融合了环保理念和科技创新。
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-400">作者：小李 (8岁)</span>
+                        <button class="btn-secondary text-sm">查看详情</button>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="glass-card project-card" data-category="robotics">
+                    <div class="image-container aspect-w-16 aspect-h-9 mb-4">
+                        <div class="w-full h-48 bg-gray-800 rounded-lg"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-blue-300 mb-2">智能宠物机器人</h3>
+                    <p class="text-gray-300 mb-4">
+                        7岁的小朋友制作的陪伴型机器人，能够识别语音指令和表情。
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-400">作者：小张 (7岁)</span>
+                        <button class="btn-secondary text-sm">查看详情</button>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="glass-card project-card" data-category="ai">
+                    <div class="image-container aspect-w-16 aspect-h-9 mb-4">
+                        <div class="w-full h-48 bg-gray-800 rounded-lg"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-blue-300 mb-2">AI 故事生成器</h3>
+                    <p class="text-gray-300 mb-4">
+                        8岁的小朋友开发的创意工具，能根据关键词自动生成有趣的故事。
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-gray-400">作者：小王 (8岁)</span>
+                        <button class="btn-secondary text-sm">查看详情</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Testimonials -->
+    <section class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 neon-box">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center neon-text">学员心得分享</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="glass-card">
+                    <p class="text-gray-300 mb-4">
+                        "在这里学习编程和 AI 真的很有趣！我最喜欢用积木式编程制作自己的游戏，
+                        看到自己的创意变成现实的感觉太棒了！"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gray-800"></div>
+                        <div class="ml-4">
+                            <p class="text-blue-300 font-semibold">小明</p>
+                            <p class="text-gray-400 text-sm">8岁 · 学习6个月</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="glass-card">
+                    <p class="text-gray-300 mb-4">
+                        "我最喜欢做机器人项目，每次看到自己设计的机器人能按照指令工作，
+                        都会特别开心。老师们也很耐心，总是鼓励我们尝试新想法。"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gray-800"></div>
+                        <div class="ml-4">
+                            <p class="text-blue-300 font-semibold">小红</p>
+                            <p class="text-gray-400 text-sm">7岁 · 学习8个月</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Community -->
+    <section class="relative z-10 text-center py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto neon-box p-12 rounded-2xl">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-8 neon-text">
+                加入我们的创意社区
+            </h2>
+            <p class="text-lg text-gray-300 mb-12 max-w-2xl mx-auto">
+                在这里，每个孩子都是独特的创造者。
+                让我们一起探索 AI 的无限可能，
+                创造属于未来的精彩作品！
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="signup.html" class="btn-primary">
+                    立即加入
+                </a>
+                <a href="courses.html" class="btn-secondary">
+                    了解课程
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 py-8 text-gray-400 text-center border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-white font-semibold mb-4">关于我们</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">公司介绍</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">教学理念</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">加入我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">学习资源</h4>
+                    <ul class="space-y-2">
+                        <li><a href="courses.html" class="hover:text-white transition-colors">课程介绍</a></li>
+                        <li><a href="community.html" class="hover:text-white transition-colors">学员作品</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition-colors">常见问题</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">联系我们</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">在线客服</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">电话咨询</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">意见反馈</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">关注我们</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">微信公众号</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">官方微博</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">抖音号</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800">
+                <p>&copy; 2024 AI Builder 星际探索. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Load navigation
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+            });
+
+        // Create stars background
+        function createStars() {
+            const stars = document.getElementById('stars');
+            const count = 100;
+            
+            for (let i = 0; i < count; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 3}s`;
+                stars.appendChild(star);
+            }
+        }
+
+        // Project filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projects = document.querySelectorAll('.project-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    // Filter projects
+                    const filter = button.getAttribute('data-filter');
+                    projects.forEach(project => {
+                        if (filter === 'all' || project.getAttribute('data-category') === filter) {
+                            project.style.display = 'block';
+                        } else {
+                            project.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+
+        // Initialize when page loads
+        window.addEventListener('load', () => {
+            createStars();
+        });
+    </script>
+</body>
+</html> 

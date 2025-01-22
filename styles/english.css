@@ -1,0 +1,163 @@
+/* English Module Styles */
+
+/* Practice Word Cards */
+.practice-word {
+    @apply bg-gradient-to-br from-blue-500 to-purple-500 p-6 rounded-xl transition-all duration-300;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.practice-word:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.practice-word img {
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+}
+
+.practice-word:hover img {
+    transform: scale(1.1);
+}
+
+/* Story Reading Section */
+.story-container {
+    background: linear-gradient(45deg, #2c3e50, #3498db);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.story-word {
+    @apply inline-block px-1 py-0.5 mx-1 rounded transition-all duration-200;
+    cursor: pointer;
+}
+
+.story-word.highlighted {
+    @apply bg-yellow-400 text-gray-900;
+    animation: bounce 0.5s ease;
+}
+
+/* Vocabulary Game */
+.vocab-card {
+    transition: all 0.3s ease;
+}
+
+.vocab-card.dragging {
+    opacity: 0.5;
+    transform: scale(1.05);
+}
+
+.vocab-target {
+    transition: all 0.3s ease;
+    border: 3px dashed transparent;
+}
+
+.vocab-target.drag-over {
+    border-color: #4CAF50;
+    background: rgba(76, 175, 80, 0.1);
+}
+
+/* Feedback Messages */
+.feedback {
+    @apply fixed bottom-24 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded-full text-white text-lg font-bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.feedback.success {
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+}
+
+.feedback.error {
+    background: linear-gradient(45deg, #f44336, #e53935);
+}
+
+/* Animations */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes celebrate {
+    0% { transform: scale(1) rotate(0); }
+    25% { transform: scale(1.2) rotate(-15deg); }
+    50% { transform: scale(1.2) rotate(15deg); }
+    75% { transform: scale(1.1) rotate(-15deg); }
+    100% { transform: scale(1) rotate(0); }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .practice-word {
+        @apply p-4;
+    }
+
+    .practice-word img {
+        @apply w-16 h-16;
+    }
+
+    .story-container {
+        @apply p-4;
+    }
+
+    .vocab-card img {
+        @apply w-16 h-16;
+    }
+
+    .feedback {
+        @apply text-base px-4 py-2;
+        max-width: 90vw;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .practice-word {
+        background: #000;
+        border: 3px solid #fff;
+    }
+
+    .story-word.highlighted {
+        background: #fff;
+        color: #000;
+    }
+
+    .vocab-target.drag-over {
+        border-color: #fff;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .practice-word,
+    .practice-word img,
+    .story-word,
+    .vocab-card,
+    .vocab-target {
+        transition: none;
+    }
+
+    .story-word.highlighted {
+        animation: none;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .practice-word {
+        @apply from-blue-700 to-purple-700;
+    }
+
+    .story-container {
+        background: linear-gradient(45deg, #1a2634, #2980b9);
+    }
+
+    .vocab-target {
+        @apply bg-gray-800;
+    }
+} 

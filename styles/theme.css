@@ -1,0 +1,94 @@
+/**
+ * Global theme CSS custom properties.
+ * These variables are dynamically updated by the theme manager.
+ */
+
+:root {
+  /* Colors */
+  --color-primary: #FF6B6B;
+  --color-secondary: #4ECDC4;
+  --color-accent: #FFE66D;
+  --color-background: #FFFFFF;
+  --color-text: #2C3E50;
+
+  /* Typography */
+  --font-family: 'Comic Sans MS', cursive, sans-serif;
+  --font-size-base: 18px;
+  --line-height: 1.6;
+
+  /* Heading Sizes (using modular scale) */
+  --heading-h1: calc(var(--font-size-base) * 2.25);  /* 1.5^3 */
+  --heading-h2: calc(var(--font-size-base) * 1.875); /* 1.5^2.5 */
+  --heading-h3: calc(var(--font-size-base) * 1.5);   /* 1.5^2 */
+  --heading-h4: calc(var(--font-size-base) * 1.25);  /* 1.5^1.5 */
+  --heading-h5: calc(var(--font-size-base) * 1.125); /* 1.5^1 */
+  --heading-h6: var(--font-size-base);
+
+  /* Spacing */
+  --spacing-unit: 20px;
+  --spacing-xs: calc(var(--spacing-unit) * 0.25);
+  --spacing-sm: calc(var(--spacing-unit) * 0.5);
+  --spacing-md: var(--spacing-unit);
+  --spacing-lg: calc(var(--spacing-unit) * 1.5);
+  --spacing-xl: calc(var(--spacing-unit) * 2);
+
+  /* Animation */
+  --animation-duration: 300ms;
+  --animation-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Interactive States */
+  --hover-scale: 1.1;
+  --active-opacity: 0.8;
+  --focus-outline: 3px solid var(--color-secondary);
+
+  /* Component-specific Variables */
+  --button-padding: var(--spacing-sm) var(--spacing-md);
+  --button-border-radius: calc(var(--spacing-unit) * 0.25);
+  --input-height: calc(var(--spacing-unit) * 2);
+  --card-padding: var(--spacing-md);
+  --card-border-radius: var(--spacing-sm);
+  --icon-size: var(--spacing-md);
+}
+
+/* High Contrast Theme */
+[data-theme="high-contrast"] {
+  --color-primary: #000000;
+  --color-secondary: #FFFFFF;
+  --color-accent: #FFE600;
+  --color-background: #FFFFFF;
+  --color-text: #000000;
+  --focus-outline: 3px solid #000000;
+}
+
+/* Dark Mode Theme */
+[data-theme="dark"] {
+  --color-primary: #BB86FC;
+  --color-secondary: #03DAC6;
+  --color-accent: #FFB300;
+  --color-background: #121212;
+  --color-text: #FFFFFF;
+  --focus-outline: 3px solid var(--color-secondary);
+}
+
+/* Utility Classes */
+.theme-transition {
+  transition: 
+    color var(--animation-duration) var(--animation-easing),
+    background-color var(--animation-duration) var(--animation-easing),
+    border-color var(--animation-duration) var(--animation-easing),
+    box-shadow var(--animation-duration) var(--animation-easing),
+    transform var(--animation-duration) var(--animation-easing);
+}
+
+.theme-interactive:hover {
+  transform: scale(var(--hover-scale));
+}
+
+.theme-interactive:active {
+  opacity: var(--active-opacity);
+}
+
+.theme-interactive:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+} 

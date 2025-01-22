@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>立即注册 - AI Builder 星际探索</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Noto Sans SC for Chinese text -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="styles/main.css">
+
+    <style>
+        /* Pricing card hover effect */
+        .pricing-card {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Form input styles */
+        .form-input {
+            @apply w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-gray-300 focus:outline-none focus:border-blue-500 transition-colors;
+        }
+
+        .form-input::placeholder {
+            @apply text-gray-500;
+        }
+
+        .form-label {
+            @apply block text-sm font-medium text-gray-300 mb-1;
+        }
+
+        /* Custom checkbox */
+        .custom-checkbox {
+            @apply relative inline-flex items-center cursor-pointer;
+        }
+
+        .custom-checkbox input {
+            @apply sr-only;
+        }
+
+        .custom-checkbox .checkmark {
+            @apply w-5 h-5 bg-gray-800 border border-gray-700 rounded transition-colors;
+        }
+
+        .custom-checkbox input:checked ~ .checkmark {
+            @apply bg-blue-500 border-blue-500;
+        }
+
+        .custom-checkbox .checkmark:after {
+            content: '';
+            @apply absolute hidden w-2 h-4 border-r-2 border-b-2 border-white transform rotate-45;
+            left: 8px;
+            top: 4px;
+        }
+
+        .custom-checkbox input:checked ~ .checkmark:after {
+            @apply block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Include Navigation -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Star background -->
+    <div id="stars" class="fixed inset-0 z-0"></div>
+
+    <!-- Hero Section -->
+    <section class="relative z-10 text-center py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto page-transition">
+            <h1 class="text-4xl sm:text-5xl font-bold mb-4 neon-text">
+                开启 AI 学习之旅
+            </h1>
+            <p class="text-xl text-blue-200 mb-12 max-w-2xl mx-auto">
+                选择适合的课程计划，让孩子踏上未来科技探索之路。
+                现在注册即可获得免费体验课程！
+            </p>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section class="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Trial Plan -->
+                <div class="glass-card pricing-card">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-300 mb-4">体验课程</h3>
+                        <div class="text-3xl font-bold text-white mb-4">
+                            ¥99
+                            <span class="text-lg font-normal text-gray-400">/课时</span>
+                        </div>
+                        <ul class="space-y-3 text-gray-300 mb-6">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                1对1专业指导
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                可抵扣正式课程
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                不满意全额退款
+                            </li>
+                        </ul>
+                        <button onclick="selectPlan('trial')" class="btn-secondary w-full">
+                            立即体验
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Monthly Plan -->
+                <div class="glass-card pricing-card">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-300 mb-4">月度会员</h3>
+                        <div class="text-3xl font-bold text-white mb-4">
+                            ¥699
+                            <span class="text-lg font-normal text-gray-400">/月</span>
+                        </div>
+                        <ul class="space-y-3 text-gray-300 mb-6">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                每周2课时
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                AI助教辅导
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                社区作品展示
+                            </li>
+                        </ul>
+                        <button onclick="selectPlan('monthly')" class="btn-secondary w-full">
+                            选择此套餐
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quarterly Plan -->
+                <div class="glass-card pricing-card neon-box">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-blue-500 text-white px-4 py-1 rounded-full text-sm">最受欢迎</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-300 mb-4">季度会员</h3>
+                        <div class="text-3xl font-bold text-white mb-4">
+                            ¥1899
+                            <span class="text-lg font-normal text-gray-400">/季</span>
+                        </div>
+                        <ul class="space-y-3 text-gray-300 mb-6">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                每周2课时
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                赠送4课时
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                专属项目指导
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                作品集展示
+                            </li>
+                        </ul>
+                        <button onclick="selectPlan('quarterly')" class="btn-primary w-full">
+                            选择此套餐
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Annual Plan -->
+                <div class="glass-card pricing-card">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-300 mb-4">年度会员</h3>
+                        <div class="text-3xl font-bold text-white mb-4">
+                            ¥6899
+                            <span class="text-lg font-normal text-gray-400">/年</span>
+                        </div>
+                        <ul class="space-y-3 text-gray-300 mb-6">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                每周2课时
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                赠送16课时
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                VIP专属服务
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                可分期付款
+                            </li>
+                        </ul>
+                        <button onclick="selectPlan('annual')" class="btn-secondary w-full">
+                            选择此套餐
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section class="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto">
+            <div class="glass-card p-8">
+                <h2 class="text-2xl font-bold text-blue-300 mb-8">注册信息</h2>
+                <form id="registrationForm" class="space-y-6">
+                    <!-- Selected Plan -->
+                    <div class="hidden">
+                        <input type="hidden" id="selectedPlan" name="selectedPlan" value="">
+                    </div>
+
+                    <!-- Parent Information -->
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-semibold text-white">家长信息</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="form-label" for="parentName">家长姓名</label>
+                                <input type="text" id="parentName" name="parentName" class="form-input" placeholder="请输入家长姓名" required>
+                            </div>
+                            <div>
+                                <label class="form-label" for="parentPhone">联系电话</label>
+                                <input type="tel" id="parentPhone" name="parentPhone" class="form-input" placeholder="请输入联系电话" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Child Information -->
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-semibold text-white">孩子信息</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="form-label" for="childName">孩子姓名</label>
+                                <input type="text" id="childName" name="childName" class="form-input" placeholder="请输入孩子姓名" required>
+                            </div>
+                            <div>
+                                <label class="form-label" for="childAge">孩子年龄</label>
+                                <select id="childAge" name="childAge" class="form-input" required>
+                                    <option value="">请选择年龄</option>
+                                    <option value="3">3岁</option>
+                                    <option value="4">4岁</option>
+                                    <option value="5">5岁</option>
+                                    <option value="6">6岁</option>
+                                    <option value="7">7岁</option>
+                                    <option value="8">8岁</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Preferences -->
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-semibold text-white">课程偏好</h3>
+                        <div class="grid grid-cols-1 gap-4">
+                            <div>
+                                <label class="form-label">感兴趣的方向（可多选）</label>
+                                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" name="interests" value="programming">
+                                        <span class="checkmark"></span>
+                                        <span class="ml-2 text-gray-300">编程启蒙</span>
+                                    </label>
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" name="interests" value="robotics">
+                                        <span class="checkmark"></span>
+                                        <span class="ml-2 text-gray-300">机器人</span>
+                                    </label>
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" name="interests" value="ai">
+                                        <span class="checkmark"></span>
+                                        <span class="ml-2 text-gray-300">人工智能</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="form-label" for="preferredTime">期望上课时间</label>
+                                <select id="preferredTime" name="preferredTime" class="form-input" required>
+                                    <option value="">请选择时间</option>
+                                    <option value="weekday-morning">工作日上午</option>
+                                    <option value="weekday-afternoon">工作日下午</option>
+                                    <option value="weekend-morning">周末上午</option>
+                                    <option value="weekend-afternoon">周末下午</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Information -->
+                    <div>
+                        <label class="form-label" for="notes">备注信息（选填）</label>
+                        <textarea id="notes" name="notes" rows="3" class="form-input" placeholder="请输入其他需要说明的信息"></textarea>
+                    </div>
+
+                    <!-- Terms and Conditions -->
+                    <div>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" required>
+                            <span class="checkmark"></span>
+                            <span class="ml-2 text-gray-300">
+                                我已阅读并同意
+                                <a href="#" class="text-blue-400 hover:text-blue-300">服务条款</a>
+                                和
+                                <a href="#" class="text-blue-400 hover:text-blue-300">隐私政策</a>
+                            </span>
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div>
+                        <button type="submit" class="btn-primary w-full">
+                            提交注册
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 py-8 text-gray-400 text-center border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-white font-semibold mb-4">关于我们</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">公司介绍</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">教学理念</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">加入我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">学习资源</h4>
+                    <ul class="space-y-2">
+                        <li><a href="courses.html" class="hover:text-white transition-colors">课程介绍</a></li>
+                        <li><a href="community.html" class="hover:text-white transition-colors">学员作品</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition-colors">常见问题</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">联系我们</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">在线客服</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">电话咨询</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">意见反馈</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">关注我们</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">微信公众号</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">官方微博</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">抖音号</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800">
+                <p>&copy; 2024 AI Builder 星际探索. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Load navigation
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+            });
+
+        // Create stars background
+        function createStars() {
+            const stars = document.getElementById('stars');
+            const count = 100;
+            
+            for (let i = 0; i < count; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 3}s`;
+                stars.appendChild(star);
+            }
+        }
+
+        // Select pricing plan
+        function selectPlan(plan) {
+            document.getElementById('selectedPlan').value = plan;
+            
+            // Scroll to registration form
+            document.querySelector('#registrationForm').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Form submission
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would typically send the form data to your server
+            alert('注册信息已提交，我们的客服会尽快与您联系！');
+        });
+
+        // Initialize when page loads
+        window.addEventListener('load', () => {
+            createStars();
+        });
+    </script>
+</body>
+</html> 
