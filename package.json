@@ -10,6 +10,7 @@
     "test:ci": "jest --ci --reporters=default --reporters=jest-junit",
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
+    "vercel-build": "npm run build",
     "start": "webpack serve --mode development --open",
     "lint": "eslint src/",
     "format": "prettier --write \"src/**/*.{js,jsx,css,html}\"",
