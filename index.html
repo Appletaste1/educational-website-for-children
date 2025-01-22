@@ -12,8 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
     
     <!-- Custom styles -->
-    <link rel="stylesheet" href="styles/main.css">
-    <link href="styles/auth.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    <link href="/css/auth.css" rel="stylesheet">
 </head>
 <body>
     <!-- Auth Container -->
@@ -39,18 +39,18 @@
     <section class="relative z-10 text-center py-20 px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto page-transition">
             <h1 class="text-4xl sm:text-5xl font-bold mb-4 neon-text">
-                让孩子的想象力<br>插上 AI 的翅膀
+                孩子的想象力<br>即将登上未来的星舰
             </h1>
             <p class="text-xl text-blue-200 mb-12 max-w-2xl mx-auto">
-                在这片充满未来感的造梦空间，孩子们将通过 AI 辅助的项目式学习，
-                培养解决问题的能力、激发创造潜能，为迎接科技时代的机遇做好准备。
+                在这个数据如星河涌动的时代，给孩子一个 AI 驱动的造梦空间，
+                让每一次创造都闪耀未来。
             </p>
             <div class="flex justify-center gap-4">
                 <a href="courses.html" class="btn-primary">
-                    探索课程内容
+                    探索 AI Builder 世界
                 </a>
                 <a href="signup.html" class="btn-secondary">
-                    立即免费注册
+                    开启星际探索之旅
                 </a>
             </div>
         </div>
@@ -59,34 +59,34 @@
     <!-- Features Section -->
     <section class="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-center neon-text">核心特色</h2>
+            <h2 class="text-3xl font-bold mb-12 text-center neon-text">未来探索特色</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Feature 1 -->
                 <div class="glass-card floating" style="animation-delay: 0s;">
                     <h3 class="text-xl font-semibold mb-4 text-blue-300">AI 智能个性化推进</h3>
                     <p class="text-gray-300 mb-4">
-                        利用智能算法，为孩子量身定制学习路径，
-                        自动匹配难度和主题，让每一步都更高效、更有趣。
+                        仿生算法为孩子定制独特的学习曲线，
+                        基于数据分析和行为追踪，每个教学环节都如指引航线的灯塔。
                     </p>
                     <a href="ai.html" class="btn-secondary inline-block">了解更多</a>
                 </div>
 
                 <!-- Feature 2 -->
                 <div class="glass-card floating" style="animation-delay: 0.2s;">
-                    <h3 class="text-xl font-semibold mb-4 text-blue-300">项目式动手创造</h3>
+                    <h3 class="text-xl font-semibold mb-4 text-blue-300">未来感课程设计</h3>
                     <p class="text-gray-300 mb-4">
-                        从火箭设计到未来城市构想，
-                        在跨学科融合的项目里激发孩子的 Builder 思维。
+                        从搭建太空站到设计火箭推进器，
+                        在沉浸式体验中打破想象边界，培养 Builder 思维。
                     </p>
                     <a href="courses.html" class="btn-secondary inline-block">查看课程</a>
                 </div>
 
                 <!-- Feature 3 -->
                 <div class="glass-card floating" style="animation-delay: 0.4s;">
-                    <h3 class="text-xl font-semibold mb-4 text-blue-300">创意社群与合作</h3>
+                    <h3 class="text-xl font-semibold mb-4 text-blue-300">社群式创新合作</h3>
                     <p class="text-gray-300 mb-4">
-                        孩子们在这里不仅仅是学习，更是交流彼此天马行空的想法，
-                        让灵感串联成无限可能。
+                        个体的灵感能点亮团队的星空，
+                        在安全的在线社区中共享创意、互相点评、伙伴协作。
                     </p>
                     <a href="community.html" class="btn-secondary inline-block">加入社区</a>
                 </div>
@@ -176,16 +176,14 @@
     <section class="relative z-10 text-center py-20 px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto neon-box p-12 rounded-2xl">
             <h2 class="text-3xl sm:text-4xl font-bold mb-8 neon-text">
-                让科技与孩子的梦想共舞
+                让 AI 成为孩子的创造助推器
             </h2>
             <p class="text-lg text-gray-300 mb-12 max-w-2xl mx-auto">
-                别让传统枯燥的教育桎梏孩子无限的创造力。
-                是时候为他们打开通往未来大门，
-                让全新的 Builder 思维方式，
-                成为孩子踏上科技时代的奠基石！
+                在信息迭代如流光般快速的未来，没有什么比培养探索精神与动手能力更重要。
+                即刻登船，踏上这条通往未来科技的奇妙航道吧！
             </p>
             <a href="signup.html" class="btn-primary">
-                立即加入，开启未来之旅！
+                开启 Builder 之旅！
             </a>
         </div>
     </section>
@@ -234,37 +232,6 @@
     </footer>
 
     <!-- Scripts -->
-    <script>
-        // Load navigation
-        fetch('components/navbar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('nav-placeholder').innerHTML = data;
-            });
-
-        // Create stars background
-        function createStars() {
-            const stars = document.getElementById('stars');
-            const count = 100;
-            
-            for (let i = 0; i < count; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = `${Math.random() * 100}%`;
-                star.style.top = `${Math.random() * 100}%`;
-                star.style.animationDelay = `${Math.random() * 3}s`;
-                stars.appendChild(star);
-            }
-        }
-
-        // Initialize when page loads
-        window.addEventListener('load', () => {
-            createStars();
-        });
-    </script>
-    <script type="module">
-        import { authModule } from './js/auth-module.js';
-        window.authModule = authModule; // Make it available globally for onclick handlers
-    </script>
+    <script type="module" src="/js/main.js"></script>
 </body>
 </html> 

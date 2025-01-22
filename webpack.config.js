@@ -6,6 +6,10 @@ const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
+// Environment checks
+const isVercel = process.env.VERCEL === '1';
+const isDevelopment = process.env.NODE_ENV !== 'production';
+
 // HTML pages to process
 const pages = [
   'index',
@@ -24,8 +28,7 @@ const pages = [
 ];
 
 module.exports = (env, argv) => {
-  const isDevelopment = argv.mode === 'development';
-  const publicPath = isDevelopment ? '/' : './';
+  const publicPath = '/'; // Always use absolute paths for consistency
 
   return {
     entry: {
