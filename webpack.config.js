@@ -29,12 +29,12 @@ module.exports = (env, argv) => {
   return {
     entry: {
       main: './js/main.js',
-      // Add other entry points as needed
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'js/[name].[contenthash].js',
-      assetModuleFilename: 'assets/[hash][ext][query]'
+      assetModuleFilename: 'assets/[hash][ext][query]',
+      publicPath: '/'
     },
     devServer: {
       static: {
@@ -89,6 +89,16 @@ module.exports = (env, argv) => {
             to: "assets",
             noErrorOnMissing: true
           },
+          {
+            from: "static",
+            to: "static",
+            noErrorOnMissing: true
+          },
+          {
+            from: "favicon.ico",
+            to: "favicon.ico",
+            noErrorOnMissing: true
+          }
         ],
       }),
     ],
