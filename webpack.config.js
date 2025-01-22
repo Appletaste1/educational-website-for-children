@@ -25,6 +25,7 @@ const pages = [
 
 module.exports = (env, argv) => {
   const isDevelopment = argv.mode === 'development';
+  const publicPath = isDevelopment ? '/' : './';
 
   return {
     entry: {
@@ -34,7 +35,7 @@ module.exports = (env, argv) => {
       path: path.resolve(__dirname, 'dist'),
       filename: 'js/[name].[contenthash].js',
       assetModuleFilename: 'assets/[hash][ext][query]',
-      publicPath: '/'
+      publicPath
     },
     devServer: {
       static: {
@@ -78,6 +79,8 @@ module.exports = (env, argv) => {
         filename: `${page}.html`,
         chunks: ['main'],
         minify: !isDevelopment,
+        inject: true,
+        scriptLoading: 'defer'
       })),
       new MiniCssExtractPlugin({
         filename: 'css/[name].[contenthash].css',
@@ -97,6 +100,11 @@ module.exports = (env, argv) => {
           {
             from: "favicon.ico",
             to: "favicon.ico",
+            noErrorOnMissing: true
+          },
+          {
+            from: "_redirects",
+            to: "_redirects",
             noErrorOnMissing: true
           }
         ],
